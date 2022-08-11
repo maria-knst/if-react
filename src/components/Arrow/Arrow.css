@@ -1,0 +1,38 @@
+.places__arrow {
+  display: block;
+  position: absolute;
+  top: 30%;
+  z-index: 4;
+  left: calc(100% - 25px);
+  transform: translate(0%, -50%);
+  max-width: 40px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 1px 5px 5px #8a8989;
+  transition: box-shadow 0.2s;
+}
+
+.places__arrow:active {
+  box-shadow: 1px 1px 1px #8a8989;
+}
+
+.places__arrow img {
+  width: 40%;
+  height: 40%;
+}
+
+#places__arrow-prev {
+  display: block;
+  position: absolute;
+  top: 30%;
+  z-index: 4;
+  left: -25px;
+}
+#places__arrow-prev img {
+  transform: rotate(180deg);
+}
+
+/*# sourceMappingURL=Arrow.css.map */
