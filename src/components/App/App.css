@@ -53,31 +53,20 @@
   box-sizing: border-box;
 }
 
-.App {
-  text-align: center;
-}
-
 .container {
   padding: 0 16px;
   max-width: 1230px;
-  overflow-x: scroll;
   margin: auto;
 }
 
-.homes {
+.App {
+  text-align: center;
+}
+.App .homes {
   padding: 120px 0;
   order: 4;
   background: #eaf0f9;
   font-family: "Roboto", sans-serif;
-}
-.homes .homes__container .places__flex-container {
-  display: flex;
-  gap: 1.5%;
-  margin: 105px auto 0;
-  position: relative;
-}
-.homes .homes__container .places__flex-container .temporarily-hidden {
-  display: none;
 }
 
 /*# sourceMappingURL=App.css.map */

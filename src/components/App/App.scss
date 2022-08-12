@@ -53,39 +53,24 @@ $main_font-family: 'Roboto', sans-serif;
   width: ($column-size * 12);
 }
 
-
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-.App {
-  text-align: center;
 }
 
 .container {
   padding: 0 16px;
   max-width: 1230px;
-  overflow-x: scroll;
   margin: auto;
 }
 
-.homes {
-  padding: 120px 0;
-  order: 4;
-  background: $color_light-grey;
-  font-family: $main_font-family;
-  .homes__container{
-    .places__flex-container {
-      display: flex;
-      gap: 1.5%;
-      margin: 105px auto 0;
-      position: relative;
-
-      .temporarily-hidden {
-        display: none;
-      }
-    }
+.App {
+  text-align: center;
+  .homes {
+    padding: 120px 0;
+    order: 4;
+    background: $color_light-grey;
+    font-family: $main_font-family;
   }
 }

@@ -11,7 +11,7 @@
   position: relative;
 }
 .title .title-text:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   width: 0;
