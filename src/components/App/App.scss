@@ -1,76 +1,77 @@
 @import url('../../styles/fonts.css');
 
-$column-size: calc(100% / 12);
 $color_white: #ffffff;
 $color_very-light-grey: #f3f3f4;
-$color_light-black: #333333;
-$color_dark-grey: #383838;
-$color_calendar-grey: #4d4d4d;
 $color_light-grey: #eaf0f9;
 $color_grey: #bfbfbf;
 $color_medium-grey: #8a8989;
-$color_tawny: #f5bd41;
+$color_calendar-grey: #4d4d4d;
+$color_dark-grey: #383838;
+$color_light-black: #333333;
 $color_dark-blue: #10367c;
 $color_light-blue: #3077c6;
+$color_tawny: #f5bd41;
+
+$column-size: calc(100% / 12);
 $top_border-radius: 8px;
 
 $main_font-family: 'Roboto', sans-serif;
 
 .col-1 {
-  width: $column-size;
+    width: $column-size;
 }
 .col-2 {
-  width: ($column-size * 2);
+    width: ($column-size * 2);
 }
 .col-3 {
-  width: ($column-size * 3);
+    width: ($column-size * 3);
 }
 .col-4 {
-  width: ($column-size * 4);
+    width: ($column-size * 4);
 }
 .col-5 {
-  width: ($column-size * 5);
+    width: ($column-size * 5);
 }
 .col-6 {
-  width: ($column-size * 6);
+    width: ($column-size * 6);
 }
 .col-7 {
-  width: ($column-size * 7);
+    width: ($column-size * 7);
 }
 .col-8 {
-  width: ($column-size * 8);
+    width: ($column-size * 8);
 }
 .col-9 {
-  width: ($column-size * 9);
+    width: ($column-size * 9);
 }
 .col-10 {
-  width: ($column-size * 10);
+    width: ($column-size * 10);
 }
 .col-11 {
-  width: ($column-size * 11);
+    width: ($column-size * 11);
 }
 .col-12 {
-  width: ($column-size * 12);
+    width: ($column-size * 12);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .container {
-  padding: 0 16px;
-  max-width: 1230px;
-  margin: auto;
+    padding: 0 16px;
+    max-width: 1230px;
+    margin: auto;
 }
 
 .App {
-  text-align: center;
-  .homes {
-    padding: 120px 0;
-    order: 4;
-    background: $color_light-grey;
-    font-family: $main_font-family;
-  }
+    text-align: center;
+    .homes {
+        padding: 120px 0;
+        order: 4;
+        background: $color_light-grey;
+        font-family: $main_font-family;
+    }
 }
