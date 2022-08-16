@@ -19,7 +19,7 @@
         "eject": "react-scripts eject",
         "prepare": "husky install",
         "lint": "prettier --write . && eslint .",
-        "sass:watch": "sass --watch src/components/PlaceElement/PlaceElement.scss src/components/PlaceElement/PlaceElement.css"
+        "sass:watch": "sass --watch src/components/App/App.scss src/components/App/App.css"
     },
     "eslintConfig": {
         "extends": [
