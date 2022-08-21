@@ -26,7 +26,7 @@
 }
 .top-frame .top-group .top-option1:after,
 .top-frame .top-group .top-option2:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   width: 0;

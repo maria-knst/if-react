@@ -5,6 +5,7 @@
 }
 
 .search-destin {
+  text-align: left;
   width: 40%;
 }
 
@@ -94,7 +95,7 @@
   width: 45%;
 }
 .top__div-but .top__calendar .calendar-month .calendar-wrapper {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #383838;
   width: 100%;
 }
@@ -102,35 +103,74 @@
   font-weight: 500;
   font-size: 18px;
 }
-.top__div-but .top__calendar .calendar-month .calendar-wrapper .cal_grid-wrapper {
+.top__div-but
+  .top__calendar
+  .calendar-month
+  .calendar-wrapper
+  .cal_grid-wrapper {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
 }
-.top__div-but .top__calendar .calendar-month .calendar-wrapper .cal_grid-wrapper .cal_day {
+.top__div-but
+  .top__calendar
+  .calendar-month
+  .calendar-wrapper
+  .cal_grid-wrapper
+  .cal_day {
   font-weight: 300;
   font-size: 14px;
   padding: 28%;
   width: 100%/7;
   height: 100%/7;
 }
-.top__div-but .top__calendar .calendar-month .calendar-wrapper .cal_grid-wrapper .cal_day-num:hover {
+.top__div-but
+  .top__calendar
+  .calendar-month
+  .calendar-wrapper
+  .cal_grid-wrapper
+  .cal_day-num:hover {
   background: #bfbfbf;
 }
-.top__div-but .top__calendar .calendar-month .calendar-wrapper .cal_grid-wrapper .cal_today {
+.top__div-but
+  .top__calendar
+  .calendar-month
+  .calendar-wrapper
+  .cal_grid-wrapper
+  .cal_today {
   color: #3077c6;
 }
-.top__div-but .top__calendar .calendar-month .calendar-wrapper .cal_grid-wrapper .cal_past-day {
+.top__div-but
+  .top__calendar
+  .calendar-month
+  .calendar-wrapper
+  .cal_grid-wrapper
+  .cal_past-day {
   color: #bfbfbf;
 }
-.top__div-but .top__calendar .calendar-month .calendar-wrapper .cal_grid-wrapper .cal_clicked-day {
+.top__div-but
+  .top__calendar
+  .calendar-month
+  .calendar-wrapper
+  .cal_grid-wrapper
+  .cal_clicked-day {
   background: #3077c6;
   color: #ffffff;
 }
-.top__div-but .top__calendar .calendar-month .calendar-wrapper .cal_grid-wrapper .cal_choosing-day {
+.top__div-but
+  .top__calendar
+  .calendar-month
+  .calendar-wrapper
+  .cal_grid-wrapper
+  .cal_choosing-day {
   background: #eaf0f9;
 }
-.top__div-but .top__calendar .calendar-month .calendar-wrapper .cal_grid-wrapper .cal_not-current-month {
+.top__div-but
+  .top__calendar
+  .calendar-month
+  .calendar-wrapper
+  .cal_grid-wrapper
+  .cal_not-current-month {
   visibility: hidden;
 }
 .top__div-but .top__calendar .calendar-month:hover {
@@ -168,7 +208,7 @@
 .top__div-but .top__people-filter .top__inner-filter {
   display: flex;
   justify-content: space-between;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: #383838;
   margin: 4% 0;
@@ -193,7 +233,7 @@
 }
 .top__div-but .top__people-filter .top__filter-with-children {
   color: #383838;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 12px;
   display: flex;
@@ -207,7 +247,7 @@
   width: 45%;
   height: 30px;
   border: 1px solid #3077c6;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 12px;
   color: #3077c6;

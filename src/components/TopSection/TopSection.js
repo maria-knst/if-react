@@ -1,8 +1,11 @@
 import React from 'react'
+
 import TopFrame from '../TopFrame/TopFrame'
-import './TopSection.css'
 import TopText from '../TopText/TopText'
 import TopForm from '../TopForm/TopForm'
+import TopApps from '../TopApps/TopApps'
+
+import './TopSection.css'
 
 const TopSection = () => {
   return (
@@ -14,6 +17,7 @@ const TopSection = () => {
           to live, work or just relax
         </TopText>
         <TopForm />
+        <TopApps />
       </div>
     </header>
   )

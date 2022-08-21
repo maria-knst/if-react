@@ -1,4 +1,4 @@
-@import '../../styles/styles.scss';
+@import '../../styles/styles';
 
 $calendar-width: 100%;
 
@@ -79,6 +79,7 @@ $calendar-width: 100%;
 }
 
 .search-destin {
+  text-align: left;
   width: 40%;
 }
 

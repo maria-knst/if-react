@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
+
 import './TopForm.css'
 
 const TopForm = () => {
+  const [destination, setDestination] = useState('New York')
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    console.log(destination)
+  }
+
   return (
     <form className="top-search-frame col-12">
       <div className="top-search-titles">
@@ -18,7 +26,8 @@ const TopForm = () => {
           id="destination"
           className="destination"
           placeholder="New York"
-          value="New York"
+          value={destination}
+          onChange={(event) => setDestination(event.target.value)}
           required
         />
 
@@ -136,7 +145,11 @@ const TopForm = () => {
             ></div>
           </div>
         </div>
-        <button className="top-search-button top-search-button_clicked">
+
+        <button
+          onClick={handleSearch}
+          className="top-search-button top-search-button_clicked"
+        >
           Search
         </button>
       </div>
