@@ -9,10 +9,16 @@ const TopFrame = () => {
         <use href={`${Sprite}#logo_vector`}></use>
       </svg>
       <div className="top-group col-4">
-        <a href="src/components/TopFrame/TopFrame#" className="top-option1 hovered">
+        <a
+          href="src/components/TopFrame/TopFrame#"
+          className="top-option1 hovered"
+        >
           Stays
         </a>
-        <a href="src/components/TopFrame/TopFrame#" className="top-option2 hovered">
+        <a
+          href="src/components/TopFrame/TopFrame#"
+          className="top-option2 hovered"
+        >
           Attractions
         </a>
 
