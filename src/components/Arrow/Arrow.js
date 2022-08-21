@@ -1,5 +1,6 @@
 import React from 'react'
 import arrow from '../../images/svg/Arrow.svg'
+import './Arrow.css'
 
 const Arrow = ({ id, onclick, visible }) => {
 

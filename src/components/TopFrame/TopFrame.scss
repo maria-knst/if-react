@@ -1,0 +1,70 @@
+@import '../../styles/styles.scss';
+
+.top-frame {
+  padding: 50px 0 10px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+
+  .top-option2,
+  .top-option1,
+  .top-logo {
+    padding-bottom: 10px;
+  }
+
+  .top-logo,
+  .top-account{
+    height: 50px;
+  }
+
+  .top-logo {
+    width: 205px;
+    height: 40px;
+  }
+  .top-group {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: right;
+    .top-option1:after,
+    .top-option2:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0;
+      top: 90%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-bottom: 4px solid $color_tawny;
+      transition: width 0.5s;
+    }
+
+    .top-option1:hover::after,
+    .top-option2:hover::after {
+      width: 85%;
+    }
+
+    .top-option2 {
+      margin-right: 24px;
+    }
+    .top-option2,
+    .top-option1 {
+      text-decoration: none;
+      color: $color_white;
+      position: relative;
+    }
+    .top-night {
+      width: 32px;
+      height: 40px;
+      margin-bottom: 8px;
+    }
+
+    .top-account {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 8px;
+      fill: $color_white;
+    }
+  }
+}

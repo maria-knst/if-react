@@ -1,0 +1,12 @@
+@import '../../styles/styles.scss';
+
+.top-section {
+  background-image: url(../../images/Top-section-castelmezzano.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  min-height: 100vh;
+  font-family: $main_font-family;
+  color: $color_white;
+  padding-bottom: 120px;
+  order: 1;
+}
