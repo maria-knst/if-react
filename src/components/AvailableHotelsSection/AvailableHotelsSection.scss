@@ -1,29 +1,10 @@
 @import '../../styles/styles.scss';
 
-@mixin places-container_mixin {
-  .places__flex-container {
-    .homes__destination {
-      color: $color_grey;
-      margin-bottom: 8px;
-    }
-    .places__image {
-      transition: all 0.5s linear;
-      width: 100%;
-      height: 70%;
-      object-fit: cover;
-      opacity: 0.85;
-    }
-    .temporarily-hidden {
-      display: none;
-    }
-  }
-}
-
 .available-hotels {
   order: 2;
   padding: 120px 0;
   background: $color_light-grey;
-  @include places-container_mixin;
+  font-family: $main_font-family;
 }
 
 .available-hotels__hidden__ {

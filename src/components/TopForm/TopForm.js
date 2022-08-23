@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 
 import './TopForm.css'
 
-const TopForm = () => {
+const TopForm = (props) => {
   const [destination, setDestination] = useState('New York')
 
   const handleSearch = (e) => {
     e.preventDefault()
-    console.log(destination)
+    props.createRequest(destination)
   }
 
   return (
@@ -25,7 +25,6 @@ const TopForm = () => {
           type="text"
           id="destination"
           className="destination"
-          placeholder="New York"
           value={destination}
           onChange={(event) => setDestination(event.target.value)}
           required

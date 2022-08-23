@@ -1,17 +1,17 @@
 import React from 'react'
 import Title from '../Title/Title'
 import PlacesSliderContainer from '../PlacesSliderContainer/PlacesSliderContainer'
-import available_hotels_array from "../../utils/available_hotels";
+import './AvailableHotelsSection.css'
 
-const HomesSection = () => {
-    return (
-        <section className="homes">
-            <div className="container homes__container">
-                <Title textContent="Available hotels" />
-                <PlacesSliderContainer elements={available_hotels_array} />
-            </div>
-        </section>
-    )
+const AvailableHotelsSection = ({ array }) => {
+  return (
+    <section className="available-hotels">
+      <div className="container col-12">
+        <Title textContent="Available hotels" />
+        <PlacesSliderContainer elements={array} />
+      </div>
+    </section>
+  )
 }
 
-export default HomesSection
+export default AvailableHotelsSection

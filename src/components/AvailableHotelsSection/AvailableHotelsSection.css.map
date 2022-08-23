@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["AvailableHotelsSection.scss","../../styles/styles.scss"],"names":[],"mappings":"AAqBA;EACE;EACA;EACA,YCtBiB;;ADEf;EACE,OCFO;EDGP;;AAEF;EACE;EACA;EACA;EACA;EACA;;AAEF;EACE;;;AAYN;EACE","file":"AvailableHotelsSection.css"}
+{"version":3,"sourceRoot":"","sources":["AvailableHotelsSection.scss","../../styles/styles.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA,YCHiB;EDIjB,aCSiB;;;ADNnB;EACE","file":"AvailableHotelsSection.css"}
