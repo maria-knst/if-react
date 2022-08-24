@@ -1,7 +1,7 @@
 import React from 'react'
 
 import TopFrame from '../TopFrame/TopFrame'
-import TopText from '../TopText/TopText'
+import Heading from '../Heading/Heading'
 import TopForm from '../TopForm/TopForm'
 import TopApps from '../TopApps/TopApps'
 import { getMatchedElements } from '../../utils/utils'
@@ -19,10 +19,10 @@ const TopSection = (props) => {
     <header className="top-section">
       <div className="container col-12">
         <TopFrame />
-        <TopText>
+        <Heading>
           Discover stays <br />
           to live, work or just relax
-        </TopText>
+        </Heading>
         <TopForm createRequest={createAvailableHotelsSection} />
         <TopApps />
       </div>
