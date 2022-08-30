@@ -27,7 +27,7 @@ const makeCalendarMatrix = (daysInMonth, daysInWeek) => {
   return matrix
 }
 
-export function getCalendarMonth(daysInMonth, daysInWeek, dayOfWeek) {
+const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
   if (dayOfWeek >= daysInWeek) {
     return false
   }
@@ -119,4 +119,4 @@ const findToday = (index, innerIndex) => {
   }
 }
 
-export { findToday }
+export { findToday, getCalendarMonth }

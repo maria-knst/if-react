@@ -4,7 +4,6 @@ import PeopleFilter from '../PeopleFilter/PeopleFilter'
 
 const FormDivButton = (props) => {
   const [visible, setVisible] = useState(false)
-
   const handleClick = (e) => {
     e.preventDefault()
     setVisible(!visible)

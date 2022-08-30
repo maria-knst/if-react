@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import './TopForm.css'
 import Calendar from '../Calendar/Calendar'
 import PeopleFilter from '../PeopleFilter/PeopleFilter'
-import FormLabel from '../FormLabel/FormLabel'
 import FormDivButton from '../FormDivButton/FormDivButton'
 
 const TopForm = (props) => {
@@ -17,12 +16,11 @@ const TopForm = (props) => {
   return (
     <form className="top-search-frame col-12">
       <div className="top-search-titles">
-        <FormLabel
-          labelText="Your destination or hotel name"
+        <label
           htmlFor="destination"
           className="search-destin"
-        />
-        <FormLabel labelText="Check-in — Check-out" className="search-check" />
+        >Your destination or hotel name</label>
+        <label className="search-check">Check-in — Check-out</label>
       </div>
       <div className="top-search-inputs">
         <input
