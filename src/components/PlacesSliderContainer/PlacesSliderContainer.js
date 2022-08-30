@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Arrow from '../Arrow/Arrow'
 import PlaceElement from '../PlaceElement/PlaceElement'
 import { madeQueueFrom, decrement, increment } from '../../utils/utils'
-import { VISIBLE_DIV_SIZE} from "../../utils/utils";
+import { VISIBLE_DIV_SIZE } from '../../utils/utils'
 
 let sliderQueue = []
 

@@ -1,7 +1,6 @@
 import React from 'react'
 
-const PlaceElement = ({ imageUrl, name, country, city}) => {
-
+const PlaceElement = ({ imageUrl, name, country, city }) => {
   return (
     <div className="places__element col-3">
       <img src={imageUrl} className="places__image" alt="home-img" />
