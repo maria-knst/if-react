@@ -16,10 +16,9 @@ const TopForm = (props) => {
   return (
     <form className="top-search-frame col-12">
       <div className="top-search-titles">
-        <label
-          htmlFor="destination"
-          className="search-destin"
-        >Your destination or hotel name</label>
+        <label htmlFor="destination" className="search-destin">
+          Your destination or hotel name
+        </label>
         <label className="search-check">Check-in — Check-out</label>
       </div>
       <div className="top-search-inputs">
