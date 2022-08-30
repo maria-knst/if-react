@@ -1,0 +1,12 @@
+@import '../../styles/styles.scss';
+
+.available-hotels {
+  order: 2;
+  padding: 120px 0;
+  background: $color_light-grey;
+  font-family: $main_font-family;
+}
+
+.available-hotels__hidden__ {
+  display: none;
+}

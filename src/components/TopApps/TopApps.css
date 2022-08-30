@@ -1,0 +1,16 @@
+.top-apps {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding-top: 120px;
+}
+.top-apps .google-play {
+  width: 135px;
+  height: 40px;
+}
+.top-apps .app-store {
+  width: 120px;
+  height: 40px;
+}
+
+/*# sourceMappingURL=TopApps.css.map */

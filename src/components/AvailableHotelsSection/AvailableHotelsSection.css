@@ -1,0 +1,12 @@
+.available-hotels {
+  order: 2;
+  padding: 120px 0;
+  background: #eaf0f9;
+  font-family: 'Roboto', sans-serif;
+}
+
+.available-hotels__hidden__ {
+  display: none;
+}
+
+/*# sourceMappingURL=AvailableHotelsSection.css.map */

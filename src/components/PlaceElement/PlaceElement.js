@@ -1,4 +1,5 @@
 import React from 'react'
+import './PlaceElement.css'
 
 const PlaceElement = ({ imageUrl, name, country, city }) => {
   return (
