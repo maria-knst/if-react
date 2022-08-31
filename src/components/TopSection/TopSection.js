@@ -8,6 +8,7 @@ import { getMatchedElements } from '../../utils/utils'
 import homes_guests_loves_array from '../../utils/homes_guests_loves_array'
 
 import './TopSection.css'
+import backgroundImage from '../../images/Top-section-castelmezzano.jpg';
 
 const TopSection = (props) => {
   const createAvailableHotelsSection = (hotels_array) => {
@@ -16,7 +17,7 @@ const TopSection = (props) => {
   }
 
   return (
-    <header className="top-section">
+    <header className="top-section" style={{backgroundImage: `url(${backgroundImage})`}}>
       <div className="container col-12">
         <TopFrame />
         <Heading>
