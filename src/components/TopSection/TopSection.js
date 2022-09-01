@@ -4,20 +4,26 @@ import TopFrame from '../TopFrame/TopFrame'
 import Heading from '../Heading/Heading'
 import TopForm from '../TopForm/TopForm'
 import TopApps from '../TopApps/TopApps'
-import { getMatchedElements } from '../../utils/utils'
-import homes_guests_loves_array from '../../utils/homes_guests_loves_array'
+import {BASE_PATH} from '../../utils/utils'
 
 import './TopSection.css'
-import backgroundImage from '../../images/Top-section-castelmezzano.jpg';
+import backgroundImage from '../../images/Top-section-castelmezzano.jpg'
+
 
 const TopSection = (props) => {
   const createAvailableHotelsSection = (hotels_array) => {
-    const result = getMatchedElements(hotels_array, homes_guests_loves_array)
-    props.createRequest(result)
+    fetch(BASE_PATH + `?search=${hotels_array}`)
+        .then(req => req.json())
+        .then(data => {
+          props.createRequest(data)
+        });
   }
 
   return (
-    <header className="top-section" style={{backgroundImage: `url(${backgroundImage})`}}>
+    <header
+      className="top-section"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <div className="container col-12">
         <TopFrame />
         <Heading>
