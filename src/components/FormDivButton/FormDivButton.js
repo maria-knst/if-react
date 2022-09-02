@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Calendar from '../Calendar/Calendar'
 import PeopleFilter from '../PeopleFilter/PeopleFilter'
 
+import './FormDivButton.scss'
+
 const FormDivButton = (props) => {
   const [visible, setVisible] = useState(false)
   const handleClick = (e) => {

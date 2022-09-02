@@ -8,7 +8,6 @@ import './TopSection.css'
 import backgroundImage from '../../images/Top-section-castelmezzano.jpg'
 
 const TopSection = (props) => {
-
   return (
     <header
       className="top-section"

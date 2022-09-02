@@ -1,7 +1,11 @@
 import React from 'react'
 import PeopleFilterComponent from '../PeopleFilterComponent/PeopleFilterComponent'
 
+import './PeopleFilter.scss'
+
 const PeopleFilter = () => {
+
+
   return (
     <div className="top__people-filter" id="top__people-filter">
       <PeopleFilterComponent spanTitle="Adults" initialState={2} />

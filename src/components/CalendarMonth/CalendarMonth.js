@@ -7,6 +7,8 @@ import {
   today,
 } from '../../utils/dates_work'
 
+import './CalendarMonth.scss'
+
 const CalendarMonth = ({ id_ }) => {
   const viewMonth = id_ === 'current' ? calendarMonth : calendarNextMonth
 

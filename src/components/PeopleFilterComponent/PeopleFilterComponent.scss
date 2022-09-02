@@ -1,0 +1,28 @@
+@import '../../styles/styles';
+
+.top__inner-filter {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: $color_dark-grey;
+  margin: 4% 0;
+  .filter_inner-button,
+  .filter_inner-num-button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid $color_light-blue;
+    background: $color_white;
+    font-size: 16px;
+  }
+  .filter_inner-button {
+    color: $color-light-blue;
+  }
+  .filter_inner-num-button {
+    border: none;
+  }
+  .filter__button-disable {
+    border: 1px solid $color_light-grey;
+    color: $color-light-grey;
+  }
+}

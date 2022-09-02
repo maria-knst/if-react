@@ -1,0 +1,71 @@
+@import '../../styles/styles';
+
+@mixin top_calendar-month {
+  margin: 2% 4% 4% 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  border-radius: $top_border-radius;
+  border: 0.3px solid $color-white;
+  color: $color_calendar-grey;
+}
+
+@mixin top_calendar-wrapper {
+  font-family: 'Roboto', sans-serif;
+  color: $color_dark-grey;
+  width: 100%;
+}
+
+@mixin top_calendar-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  .cal_day {
+    font-weight: 300;
+    font-size: 14px;
+    padding: 28%;
+    width: 100% / 7;
+    height: 100% / 7;
+  }
+  .cal_day-num:hover {
+    background: $color_grey;
+  }
+
+  .cal_today {
+    color: $color_light-blue;
+  }
+  .cal_past-day {
+    color: $color-grey;
+  }
+  .cal_clicked-day {
+    background: $color_light-blue;
+    color: $color_white;
+  }
+  .cal_choosing-day {
+    background: $color_light-grey;
+  }
+  .cal_not-current-month {
+    visibility: hidden;
+  }
+}
+
+.calendar-month {
+  @include top_calendar-month;
+  width: 45%;
+
+  .calendar-wrapper {
+    @include top_calendar-wrapper;
+
+    .cal_month-name {
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    .cal_grid-wrapper {
+      @include top_calendar-grid-wrapper;
+    }
+  }
+}
+.calendar-month:hover {
+  border: 0.3px solid $color-light-grey;
+}
