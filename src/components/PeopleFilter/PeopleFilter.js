@@ -4,8 +4,6 @@ import PeopleFilterComponent from '../PeopleFilterComponent/PeopleFilterComponen
 import './PeopleFilter.scss'
 
 const PeopleFilter = () => {
-
-
   return (
     <div className="top__people-filter" id="top__people-filter">
       <PeopleFilterComponent spanTitle="Adults" initialState={2} />

@@ -11,8 +11,8 @@ function App() {
   const [availableHotelsArray, setAvailableHotelsArray] = useState([])
   const [hotelsIsVisible, setHotelsVisible] = useState(false)
 
-  const setGoodHotelsArray = async (hotels_array) => {
-    const request = await fetch(BASE_PATH + `?search=${hotels_array}`)
+  const madeHotelsArray = async (search) => {
+    const request = await fetch(BASE_PATH + `?search=${search}`)
     const result = await request.json()
 
     if (result.length) {
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <TopSection>
-        <TopForm createRequest={setGoodHotelsArray} />
+        <TopForm createRequest={madeHotelsArray} />
       </TopSection>
       {hotelsIsVisible && (
         <AvailableHotelsSection array={availableHotelsArray} />

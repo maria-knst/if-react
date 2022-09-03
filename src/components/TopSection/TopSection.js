@@ -7,7 +7,7 @@ import TopApps from '../TopApps/TopApps'
 import './TopSection.css'
 import backgroundImage from '../../images/Top-section-castelmezzano.jpg'
 
-const TopSection = (props) => {
+const TopSection = ({ children }) => {
   return (
     <header
       className="top-section"
@@ -19,7 +19,7 @@ const TopSection = (props) => {
           Discover stays <br />
           to live, work or just relax
         </Heading>
-        {props.children}
+        {children}
         <TopApps />
       </div>
     </header>
