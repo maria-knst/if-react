@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import Calendar from '../Calendar/Calendar'
 import PeopleFilter from '../PeopleFilter/PeopleFilter'
 
-const FormDivButton = (props) => {
+import './FormDivButton.scss'
+
+const FormDivButton = ({type, children}) => {
   const [visible, setVisible] = useState(false)
   const handleClick = (e) => {
     e.preventDefault()
@@ -10,11 +12,11 @@ const FormDivButton = (props) => {
   }
 
   return (
-    <div className={`${props.type} top__div-but`}>
+    <div className={`${type} top__div-but`}>
       <button className="inner-but" onClick={handleClick}>
-        {props.children}
+        {children}
       </button>
-      {visible && (props.type === 'date' ? <Calendar /> : <PeopleFilter />)}
+      {visible && (type === 'date' ? <Calendar /> : <PeopleFilter />)}
     </div>
   )
 }

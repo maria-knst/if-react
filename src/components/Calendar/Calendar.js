@@ -2,6 +2,8 @@ import React from 'react'
 import arrow from '../../images/svg/Arrow.svg'
 import CalendarMonth from '../CalendarMonth/CalendarMonth'
 
+import './Calendar.scss'
+
 const Calendar = () => {
   return (
     <div className="top__calendar">

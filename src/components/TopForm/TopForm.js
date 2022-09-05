@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 
 import './TopForm.css'
-import Calendar from '../Calendar/Calendar'
-import PeopleFilter from '../PeopleFilter/PeopleFilter'
 import FormDivButton from '../FormDivButton/FormDivButton'
 
-const TopForm = (props) => {
+const TopForm = ({ createRequest }) => {
   const [destination, setDestination] = useState('New York')
 
   const handleSearch = (e) => {
     e.preventDefault()
-    props.createRequest(destination)
+    createRequest(destination)
+    setDestination('')
   }
 
   return (

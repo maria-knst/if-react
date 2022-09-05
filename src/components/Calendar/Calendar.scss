@@ -1,0 +1,43 @@
+@import '../../styles/styles';
+
+@mixin slide_up {
+  transition: all 0.5s linear;
+}
+
+@mixin top_calendar {
+  background: $color_white;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 2;
+  border-radius: $top_border-radius;
+  border: 0.3px solid $color-light-blue;
+  $calendar-width: 100%;
+
+  @include slide_up;
+}
+
+.top__calendar {
+  @include top_calendar;
+  top: 120%;
+  width: 225%;
+
+  .cal_arrow {
+    margin-top: 2%;
+    height: 16px;
+    position: absolute;
+    opacity: 0.8;
+  }
+  .cal_arrow:active {
+    opacity: 1;
+  }
+
+  .calendar_arrow1 {
+    left: 4%;
+    transform: rotate(180deg);
+  }
+  .calendar_arrow2 {
+    margin-right: 2%;
+    left: 95%;
+  }
+}

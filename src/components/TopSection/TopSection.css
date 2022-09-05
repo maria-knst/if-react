@@ -1,5 +1,5 @@
 .top-section {
-  background-image: url(../../images/Top-section-castelmezzano.jpg);
+  background-image: url('../../images/Top-section-castelmezzano.jpg');
   background-repeat: no-repeat;
   background-size: 100% auto;
   min-height: 100vh;

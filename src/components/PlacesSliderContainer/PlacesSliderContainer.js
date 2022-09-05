@@ -7,7 +7,7 @@ import './PlacesSliderContainer.css'
 
 let sliderQueue = []
 
-const PlacesSliderContainer = (props) => {
+const PlacesSliderContainer = ({ elements }) => {
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(VISIBLE_DIV_SIZE)
   const [arrowPrev, setArrowPrev] = useState(false)
@@ -28,7 +28,7 @@ const PlacesSliderContainer = (props) => {
   const clickNext = (event) => {
     setArrowPrev(true)
     event.preventDefault()
-    const incr = increment(end, props.elements)
+    const incr = increment(end, elements)
     if (incr !== false) {
       setEnd(incr)
       setStart(end - VISIBLE_DIV_SIZE + 1)
@@ -37,7 +37,7 @@ const PlacesSliderContainer = (props) => {
     }
   }
 
-  sliderQueue = madeQueueFrom(props.elements, start, end)
+  sliderQueue = madeQueueFrom(elements, start, end)
 
   return (
     <div className="places__flex-container col-12">
