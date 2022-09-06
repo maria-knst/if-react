@@ -31,13 +31,13 @@ const TopForm = ({ createRequest }) => {
         />
 
         <FormDivButton type="date">
-          <span id="start-date">Tue 15 Sept</span> —
-          <span id="end-date">Sat 19 Sept</span>
+          {/*<span id="start-date">Tue 15 Sept</span> —*/}
+          {/*<span id="end-date">Sat 19 Sept</span>*/}
         </FormDivButton>
 
         <FormDivButton type="people">
-          <span id="adult-span">2</span> Adults —<span id="child-span">0</span>{' '}
-          Children —<span id="room-span">1</span> Room
+          {/*<span id="adult-span">2</span> Adults —<span id="child-span">0</span>{' '}*/}
+          {/*Children —<span id="room-span">1</span> Room*/}
         </FormDivButton>
 
         <button
