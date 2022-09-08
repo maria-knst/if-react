@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {
   calendarMonth,
   calendarNextMonth,
@@ -10,6 +10,7 @@ import {
 import './CalendarMonth.scss'
 
 const CalendarMonth = ({ id_ }) => {
+  const [clicked, setClicked] = useState(false)
   const viewMonth = id_ === 'current' ? calendarMonth : calendarNextMonth
 
   return (
@@ -31,15 +32,19 @@ const CalendarMonth = ({ id_ }) => {
             item.map((innerItem, innerIndex) =>
               innerItem.isCurrentMonth ? (
                 <div
-                  className="cal_day cal_day-num cal_day-num-d"
+                  className={`cal_day cal_day-num cal_day-num-d ${clicked && 'cal_clicked-day'}`}
                   key={index + innerIndex}
+                  onClick={(e) => {
+                    console.log(e.target)}}
                 >
                   {innerItem.daysInMonth}
                 </div>
               ) : (
                 <div
-                  className="cal_day cal_day-num cal_day-num-d cal_not-current-month"
+                  className={`cal_day cal_day-num cal_day-num-d cal_not-current-month ${clicked && 'cal_clicked-day'}`}
                   key={index + innerIndex}
+                  onClick={(e) => {
+                    console.log(e.target)}}
                 >
                   {innerItem.daysInMonth}
                 </div>
