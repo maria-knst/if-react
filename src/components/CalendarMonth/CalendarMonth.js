@@ -1,5 +1,11 @@
 import React from 'react'
-import {calendarMonth, calendarNextMonth, daysOfWeek, months, today} from '../../utils/dates_work'
+import {
+  calendarMonth,
+  calendarNextMonth,
+  daysOfWeek,
+  months,
+  today,
+} from '../../utils/dates_work'
 
 import './CalendarMonth.scss'
 
@@ -8,53 +14,52 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
 
   let todayDay = false
   const madeDay = (index, innerIndex, innerItem) => {
-    if(innerItem.currentDay){
-      todayDay = true;
+    if (innerItem.currentDay) {
+      todayDay = true
       return (
-          <div
-              className={`cal_day cal_day-num cal_day-num-d cal_today`}
-              key={index + innerIndex}
-              onClick={handleClick.bind(this, innerItem)}
-          >
-            {innerItem.daysInMonth}
-          </div>
+        <div
+          className={`cal_day cal_day-num cal_day-num-d cal_today`}
+          key={index + innerIndex}
+          onClick={handleClick.bind(this, innerItem)}
+        >
+          {innerItem.daysInMonth}
+        </div>
       )
-    }
-    else{
-      return (todayDay === true) ? (
-          <div
-              className={`cal_day cal_day-num cal_day-num-d`}
-              key={index + innerIndex}
-              onClick={handleClick.bind(this, innerItem)}
-          >
-            {innerItem.daysInMonth}
-          </div>
+    } else {
+      return todayDay === true ? (
+        <div
+          className={`cal_day cal_day-num cal_day-num-d`}
+          key={index + innerIndex}
+          onClick={handleClick.bind(this, innerItem)}
+        >
+          {innerItem.daysInMonth}
+        </div>
       ) : (
-          <div
-              className={`cal_day cal_day-num cal_day-num-d cal_past-day`}
-              key={index + innerIndex}
-              onClick={event => event.preventDefault()}
-          >
-            {innerItem.daysInMonth}
-          </div>
-      );
+        <div
+          className={`cal_day cal_day-num cal_day-num-d cal_past-day`}
+          key={index + innerIndex}
+          onClick={(event) => event.preventDefault()}
+        >
+          {innerItem.daysInMonth}
+        </div>
+      )
     }
   }
 
   const madeNextMonthDay = (index, innerIndex, innerItem) => {
-      return (
-          <div
-              className={`cal_day cal_day-num cal_day-num-d`}
-              key={index + innerIndex}
-              onClick={handleClick.bind(this, innerItem)}
-          >
-              {innerItem.daysInMonth}
-          </div>
-      )
+    return (
+      <div
+        className={`cal_day cal_day-num cal_day-num-d`}
+        key={index + innerIndex}
+        onClick={handleClick.bind(this, innerItem)}
+      >
+        {innerItem.daysInMonth}
+      </div>
+    )
   }
 
   const handleClick = (item, e) => {
-    getClickedDay(e.target)
+    getClickedDay(item, e.target)
   }
 
   return (
@@ -74,13 +79,12 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
 
           {viewMonth.map((item, index) =>
             item.map((innerItem, innerIndex) =>
-              innerItem.isCurrentMonth ? ( (id_ === 'current') ?
-                      (
-                          madeDay(index, innerIndex, innerItem)
-                      ) : (
-                          madeNextMonthDay(index, innerIndex, innerItem)
-                      )
-
+              innerItem.isCurrentMonth ? (
+                id_ === 'current' ? (
+                  madeDay(index, innerIndex, innerItem)
+                ) : (
+                  madeNextMonthDay(index, innerIndex, innerItem)
+                )
               ) : (
                 <div
                   className={`cal_day cal_day-num cal_day-num-d cal_not-current-month`}

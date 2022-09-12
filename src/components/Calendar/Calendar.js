@@ -1,24 +1,25 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import arrow from '../../images/svg/Arrow.svg'
 import CalendarMonth from '../CalendarMonth/CalendarMonth'
 
 import './Calendar.scss'
 
 const Calendar = () => {
+  const period = {
+    start: false,
+    end: false,
+  }
 
-    const period = {
-        start: false,
-        end: false,
+  const madePeriod = (item, eTarget) => {
+    eTarget.classList.toggle('cal_clicked-day')
+      console.log(item)
+    if (!period.start) {
+      period.start = item.daysInMonth
+    } else if (!period.end) {
+      period.end = item.daysInMonth
     }
-
-    const madePeriod = (eTarget) =>{
-        eTarget.classList.toggle('cal_clicked-day');
-        if(!period.start){
-            period.start = eTarget.innerText;
-        }else if(!period.end){
-            period.end = eTarget.innerText;
-        }
-    }
+      console.log(period)
+  }
 
   return (
     <div className="top__calendar">

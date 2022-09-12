@@ -76,15 +76,14 @@ const getCalendarNextMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
 
   for (let i = 0; i < Math.ceil(daysInMonth / daysInWeek); i++) {
     for (let j = 0; j < daysInWeek; j++) {
-      if(count % daysInMonth === 0){
+      if (count % daysInMonth === 0) {
         matrix[i][j] = {
           daysInMonth: daysInMonth, //count % daysInMonth,
           isCurrentMonth: false,
           selectedDay: false,
           currentDay: false,
         }
-      }
-      else {
+      } else {
         matrix[i][j] = {
           daysInMonth: count % daysInMonth,
           isCurrentMonth: false,
@@ -92,10 +91,9 @@ const getCalendarNextMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
           currentDay: false,
         }
       }
-
-      }
-      count++
     }
+    count++
+  }
 
   return matrix
 }
