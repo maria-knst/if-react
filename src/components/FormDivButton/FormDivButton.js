@@ -4,7 +4,7 @@ import PeopleFilter from '../PeopleFilter/PeopleFilter'
 
 import './FormDivButton.scss'
 
-const FormDivButton = ({ type, children }) => {
+const FormDivButton = ({ type }) => {
   const [visible, setVisible] = useState(false)
   const [peopleFilterArguments, setPeopleFilterArguments] = useState({
     Adults: 2,
@@ -15,6 +15,7 @@ const FormDivButton = ({ type, children }) => {
     start: 'Tue 15 Sept',
     end: 'Sat 19 Sept',
   })
+
   const handleClick = (e) => {
     e.preventDefault()
     setVisible(!visible)
@@ -24,12 +25,11 @@ const FormDivButton = ({ type, children }) => {
     <div className={`${type} top__div-but`}>
       <button className="inner-but" onClick={handleClick}>
         {type === 'people'
-          ? peopleFilterArguments.Adults +
-            ' Adults — ' +
-            peopleFilterArguments.Children +
-            ' Children — ' +
-            peopleFilterArguments.Rooms +
-            ' Room '
+          ? Object.entries(peopleFilterArguments)
+              .map((el) => {
+                return `${el[0]} ${el[1]}`
+              })
+              .join(' — ')
           : dataArguments.start + '—' + dataArguments.end}
       </button>
       {visible &&

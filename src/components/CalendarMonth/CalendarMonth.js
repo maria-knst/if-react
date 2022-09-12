@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {
   calendarMonth,
   calendarNextMonth,
@@ -12,13 +12,11 @@ import './CalendarMonth.scss'
 const CalendarMonth = ({ id_, getClickedDay }) => {
   const viewMonth = id_ === 'current' ? calendarMonth : calendarNextMonth
 
-  let todayDay = false
   const madeDay = (index, innerIndex, innerItem) => {
     if (innerItem.currentDay) {
-      todayDay = true
       return (
         <div
-          className={`cal_day cal_day-num cal_day-num-d cal_today`}
+          className="cal_day cal_day-num cal_day-num-d cal_today"
           key={index + innerIndex}
           onClick={handleClick.bind(this, innerItem)}
         >
@@ -26,9 +24,9 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
         </div>
       )
     } else {
-      return todayDay === true ? (
+      return !innerItem.isPast ? (
         <div
-          className={`cal_day cal_day-num cal_day-num-d`}
+          className="cal_day cal_day-num cal_day-num-d"
           key={index + innerIndex}
           onClick={handleClick.bind(this, innerItem)}
         >
@@ -36,7 +34,7 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
         </div>
       ) : (
         <div
-          className={`cal_day cal_day-num cal_day-num-d cal_past-day`}
+          className="cal_day cal_day-num cal_day-num-d cal_past-day"
           key={index + innerIndex}
           onClick={(event) => event.preventDefault()}
         >
@@ -49,7 +47,7 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
   const madeNextMonthDay = (index, innerIndex, innerItem) => {
     return (
       <div
-        className={`cal_day cal_day-num cal_day-num-d`}
+        className="cal_day cal_day-num cal_day-num-d"
         key={index + innerIndex}
         onClick={handleClick.bind(this, innerItem)}
       >
@@ -59,7 +57,8 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
   }
 
   const handleClick = (item, e) => {
-    getClickedDay(item, e.target)
+    e.target.classList.toggle('cal_clicked-day')
+    getClickedDay(item)
   }
 
   return (
@@ -87,7 +86,7 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
                 )
               ) : (
                 <div
-                  className={`cal_day cal_day-num cal_day-num-d cal_not-current-month`}
+                  className="cal_day cal_day-num cal_day-num-d cal_not-current-month"
                   key={index + innerIndex}
                   onClick={handleClick.bind(this, innerItem)}
                 >

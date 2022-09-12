@@ -46,6 +46,7 @@ const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
           isCurrentMonth: start,
           selectedDay: false,
           currentDay: daysInMonth === todayDay && start === true,
+          isPast: daysInMonth < todayDay || start === false,
         }
         start = false // month is over
       } else {
@@ -58,6 +59,7 @@ const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
           isCurrentMonth: start,
           selectedDay: false,
           currentDay: count % daysInMonth === todayDay && start === true, //checked if day is today day
+          isPast: count % daysInMonth < todayDay || start === false,
         }
       }
       count++

@@ -10,15 +10,12 @@ const Calendar = () => {
     end: false,
   }
 
-  const madePeriod = (item, eTarget) => {
-    eTarget.classList.toggle('cal_clicked-day')
-      console.log(item)
+  const madePeriod = (item) => {
     if (!period.start) {
       period.start = item.daysInMonth
     } else if (!period.end) {
       period.end = item.daysInMonth
     }
-      console.log(period)
   }
 
   return (
