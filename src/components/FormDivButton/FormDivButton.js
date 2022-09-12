@@ -3,7 +3,6 @@ import Calendar from '../Calendar/Calendar'
 import PeopleFilter from '../PeopleFilter/PeopleFilter'
 
 import './FormDivButton.scss'
-import PeopleFilterComponent from '../PeopleFilterComponent/PeopleFilterComponent'
 
 const FormDivButton = ({ type, children }) => {
   const [visible, setVisible] = useState(false)

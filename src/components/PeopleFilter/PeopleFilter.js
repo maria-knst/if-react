@@ -6,9 +6,9 @@ import './PeopleFilter.scss'
 import { CHILD_YEARS } from '../../utils/utils'
 
 let totalAmount = {
-    Adults: 2,
-    Children: 0,
-    Rooms: 1,
+  Adults: 2,
+  Children: 0,
+  Rooms: 1,
 }
 
 const PeopleFilter = ({ setPeopleFilterArguments }) => {
@@ -28,8 +28,8 @@ const PeopleFilter = ({ setPeopleFilterArguments }) => {
   }
 
   const getTotalAmount = (object) => {
-      totalAmount = { ...totalAmount, ...object};
-      setPeopleFilterArguments(totalAmount);
+    totalAmount = { ...totalAmount, ...object }
+    setPeopleFilterArguments(totalAmount)
   }
 
   return (

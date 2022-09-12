@@ -39,7 +39,7 @@ const useFilter = ({
           setChildAgeCount(amount + 1)
         }
       }
-      getAmount({[spanTitle]: amount + 1})
+      getAmount({ [spanTitle]: amount + 1 })
     } else {
       if (amount > min) {
         setAmount(amount - 1)
@@ -53,7 +53,7 @@ const useFilter = ({
         if (spanTitle === 'Children') {
           setChildAgeCount(amount - 1)
         }
-        getAmount({[spanTitle]: amount - 1})
+        getAmount({ [spanTitle]: amount - 1 })
       }
     }
   }
