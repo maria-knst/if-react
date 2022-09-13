@@ -4,18 +4,25 @@ import CalendarMonth from '../CalendarMonth/CalendarMonth'
 
 import './Calendar.scss'
 
-const Calendar = () => {
-  const period = {
-    start: false,
-    end: false,
-  }
+const period = {
+  start: 'Tue 15 Sept',
+  end: 'Sat 19 Sept',
+}
+const clickedPeriod = {
+  start: false,
+  end: false,
+}
 
+const Calendar = ({ setDataArguments }) => {
   const madePeriod = (item) => {
-    if (!period.start) {
-      period.start = item.daysInMonth
-    } else if (!period.end) {
-      period.end = item.daysInMonth
+    if (!clickedPeriod.start && !clickedPeriod.end) {
+      period.start = `${item.daysInMonth} ${item.month}`
+      clickedPeriod.start = true
+    } else if (clickedPeriod.start && !clickedPeriod.end) {
+      period.end = `${item.daysInMonth} ${item.month}`
+      clickedPeriod.end = true
     }
+    setDataArguments(period)
   }
 
   return (

@@ -27,12 +27,13 @@ const makeCalendarMatrix = (daysInMonth, daysInWeek) => {
   return matrix
 }
 
-const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
+const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek ,isCurMonth) => {
   if (dayOfWeek >= daysInWeek) {
     return false
   }
 
   const todayDay = new Date().getDate()
+  const curMonth = (isCurMonth) ? months[today.getMonth()] : months[today.getMonth() + 1]
 
   let count = daysInMonth - dayOfWeek + 1
   const matrix = makeCalendarMatrix(daysInMonth, daysInWeek)
@@ -47,6 +48,7 @@ const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
           selectedDay: false,
           currentDay: daysInMonth === todayDay && start === true,
           isPast: daysInMonth < todayDay || start === false,
+          month: curMonth,
         }
         start = false // month is over
       } else {
@@ -60,41 +62,11 @@ const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
           selectedDay: false,
           currentDay: count % daysInMonth === todayDay && start === true, //checked if day is today day
           isPast: count % daysInMonth < todayDay || start === false,
+          month: curMonth,
         }
       }
       count++
     }
-  }
-
-  return matrix
-}
-
-const getCalendarNextMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
-  if (dayOfWeek >= daysInWeek) {
-    return false
-  }
-  let count = daysInMonth - dayOfWeek + 1
-  const matrix = makeCalendarMatrix(daysInMonth, daysInWeek)
-
-  for (let i = 0; i < Math.ceil(daysInMonth / daysInWeek); i++) {
-    for (let j = 0; j < daysInWeek; j++) {
-      if (count % daysInMonth === 0) {
-        matrix[i][j] = {
-          daysInMonth: daysInMonth, //count % daysInMonth,
-          isCurrentMonth: false,
-          selectedDay: false,
-          currentDay: false,
-        }
-      } else {
-        matrix[i][j] = {
-          daysInMonth: count % daysInMonth,
-          isCurrentMonth: false,
-          selectedDay: false,
-          currentDay: false,
-        }
-      }
-    }
-    count++
   }
 
   return matrix
@@ -134,12 +106,14 @@ export const calendarMonth = getCalendarMonth(
   getParameters().daysInMonth,
   getParameters().daysInWeek,
   getParameters().dayOfWeek,
+  true,
 )
 
 export const calendarNextMonth = getCalendarMonth(
   getParametersForNextMonth().daysInMonth,
   getParametersForNextMonth().daysInWeek,
   getParametersForNextMonth().dayOfWeek,
+  false,
 )
 
 const findToday = (index, innerIndex) => {

@@ -34,7 +34,7 @@ const FormDivButton = ({ type }) => {
       </button>
       {visible &&
         (type === 'date' ? (
-          <Calendar />
+          <Calendar setDataArguments={setDataArguments} />
         ) : (
           <PeopleFilter setPeopleFilterArguments={setPeopleFilterArguments} />
         ))}

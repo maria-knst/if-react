@@ -13,11 +13,6 @@ let totalAmount = {
 
 const PeopleFilter = ({ setPeopleFilterArguments }) => {
   const [childAgeCount, setChildAgeCount] = useState(0)
-    // const [totalAmount, setTotalAmount] = useState({
-    //     Adults: 2,
-    //     Children: 0,
-    //     Rooms: 1,
-    // })
 
   const getChildAgeElements = (length) => {
     const content = []
