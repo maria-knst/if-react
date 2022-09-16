@@ -27,13 +27,15 @@ const makeCalendarMatrix = (daysInMonth, daysInWeek) => {
   return matrix
 }
 
-const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek ,isCurMonth) => {
+const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek, isCurMonth) => {
   if (dayOfWeek >= daysInWeek) {
     return false
   }
 
   const todayDay = new Date().getDate()
-  const curMonth = (isCurMonth) ? months[today.getMonth()] : months[today.getMonth() + 1]
+  const curMonth = isCurMonth
+    ? months[today.getMonth()]
+    : months[today.getMonth() + 1]
 
   let count = daysInMonth - dayOfWeek + 1
   const matrix = makeCalendarMatrix(daysInMonth, daysInWeek)
