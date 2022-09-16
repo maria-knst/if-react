@@ -63,8 +63,10 @@ const HotelBlock = () => {
       <div className="hotel_comments container col-12">
         <div className="comment__flex-container">
           <Arrow id="places__arrow-prev" visible={true} />
-          <Comment />
-          <Comment />
+          <Comment hotelName={hotelElement.name}
+                   hotelDestination={`${hotelElement.city}, ${hotelElement.country}`}/>
+          <Comment hotelName={hotelElement.name}
+                   hotelDestination={`${hotelElement.city}, ${hotelElement.country}`}/>
           <Arrow id="places__arrow-next" visible={true} />
         </div>
       </div>
