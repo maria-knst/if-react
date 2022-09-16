@@ -14,3 +14,34 @@ $column-size: calc(100% / 12);
 $top_border-radius: 8px;
 
 $main_font-family: 'Roboto', sans-serif;
+
+
+@mixin _1020 {
+  @media screen and (max-width: 1020px) {
+    @content;
+  }
+}
+
+@mixin _840 {
+  @media screen and (max-width: 840px) {
+    @content;
+  }
+}
+
+@mixin _600 {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin _520 {
+  @media screen and (max-width: 520px) {
+    @content;
+  }
+}
+
+@mixin _362 {
+  @media screen and (max-width: 362px) {
+    @content;
+  }
+}

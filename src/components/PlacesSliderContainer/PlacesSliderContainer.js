@@ -3,7 +3,8 @@ import Arrow from '../Arrow/Arrow'
 import PlaceElement from '../PlaceElement/PlaceElement'
 import { madeQueueFrom, decrement, increment } from '../../utils/utils'
 import { VISIBLE_DIV_SIZE } from '../../utils/utils'
-import './PlacesSliderContainer.css'
+import './PlacesSliderContainer.scss'
+
 
 let sliderQueue = []
 
@@ -49,6 +50,7 @@ const PlacesSliderContainer = ({ elements }) => {
           name={item.name}
           country={item.country}
           city={item.city}
+          imageId={item.id}
         />
       ))}
       <Arrow id="places__arrow-next" onclick={clickNext} visible={arrowNext} />

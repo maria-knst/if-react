@@ -47,7 +47,12 @@ const bubbleSort = (data) => {
   return data
 }
 
+const getIdFromURL = (path) => {
+  return path.replace(/^\/hotel\//, '')
+}
+
+
 export const VISIBLE_DIV_SIZE = 4
 export const BASE_PATH = 'https://fe-student-api.herokuapp.com/api/hotels'
 
-export { madeQueueFrom, decrement, increment, getMatchedElements, bubbleSort }
+export { madeQueueFrom, decrement, increment, getMatchedElements, bubbleSort, getIdFromURL }

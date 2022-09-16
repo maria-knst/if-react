@@ -13,8 +13,8 @@ const TopSection = ({ children }) => {
       className="top-section"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
+      <TopFrame />
       <div className="container col-12">
-        <TopFrame />
         <Heading>
           Discover stays <br />
           to live, work or just relax

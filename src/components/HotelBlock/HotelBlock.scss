@@ -1,0 +1,22 @@
+@import '../../styles/styles.scss';
+
+.hotel_block{
+  .hotel_description{
+    display: flex;
+    margin: 42px auto;
+    .hotel_image-container{
+      width: 70%;
+      .hotel_image{
+        width: 100%;
+      }
+    }
+    .hotel_info-container{
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      padding: 4px 24px;
+    }
+  }
+}
