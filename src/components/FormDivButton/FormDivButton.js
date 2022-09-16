@@ -4,7 +4,7 @@ import PeopleFilter from '../PeopleFilter/PeopleFilter'
 
 import './FormDivButton.scss'
 
-const FormDivButton = ({type, children}) => {
+const FormDivButton = ({ type, children }) => {
   const [visible, setVisible] = useState(false)
   const handleClick = (e) => {
     e.preventDefault()

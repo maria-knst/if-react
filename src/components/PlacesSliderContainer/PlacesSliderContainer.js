@@ -5,7 +5,6 @@ import { madeQueueFrom, decrement, increment } from '../../utils/utils'
 import { VISIBLE_DIV_SIZE } from '../../utils/utils'
 import './PlacesSliderContainer.scss'
 
-
 let sliderQueue = []
 
 const PlacesSliderContainer = ({ elements }) => {

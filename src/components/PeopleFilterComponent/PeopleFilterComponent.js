@@ -6,14 +6,13 @@ const PeopleFilterComponent = ({ spanTitle, initialState }) => {
   const [amount, setAmount] = useState(initialState)
   const handleClick = (e) => {
     e.preventDefault()
-      if(e.target.innerText === '+'){
-          setAmount(amount + 1)
-      }else {
-          if (amount !== 0) {
-              setAmount(amount - 1)
-          }
+    if (e.target.innerText === '+') {
+      setAmount(amount + 1)
+    } else {
+      if (amount !== 0) {
+        setAmount(amount - 1)
       }
-
+    }
   }
 
   return (

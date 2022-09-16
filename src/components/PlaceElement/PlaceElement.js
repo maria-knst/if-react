@@ -1,9 +1,9 @@
 import React from 'react'
 import './PlaceElement.css'
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 
-const PlaceElement = ({imageUrl, name, country, city, imageId }) => {
+const PlaceElement = ({ imageUrl, name, country, city, imageId }) => {
   return (
     <Link to={`/hotel/${imageId}`} className="places__element col-3">
       <img src={imageUrl} className="places__image" alt="home-img" />

@@ -7,13 +7,12 @@ import HotelBlock from '../HotelBlock/HotelBlock'
 import './HotelPage.scss'
 
 const HotelPage = () => {
-
   return (
     <div>
-      <div className='top-frame-container'>
+      <div className="top-frame-container">
         <TopFrame />
       </div>
-        <HotelBlock />
+      <HotelBlock />
       <Footer />
     </div>
   )
