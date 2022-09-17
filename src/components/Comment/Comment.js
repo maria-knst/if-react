@@ -1,6 +1,7 @@
 import React from 'react'
 
 import flag from '../../images/Flags/USA.png'
+import userIcon from '../../images/svg/UserIcon.svg';
 
 import './Comment.scss'
 
@@ -10,9 +11,7 @@ const Comment = ({ hotelDestination, hotelName }) => {
       <div className="reviews__destination">
         <div className="reviews__hostel">
           <h6 className="reviews__hostel-name">{hotelName}</h6>
-          <span className="reviews__hostel-location">
-            {hotelDestination}
-          </span>
+          <span className="reviews__hostel-location">{hotelDestination}</span>
         </div>
 
         <div className="reviews__score">
@@ -22,9 +21,7 @@ const Comment = ({ hotelDestination, hotelName }) => {
       </div>
 
       <div className="reviews__user">
-        <svg className="reviews-account">
-          <use href="../src/images/svg/Sprite.svg#AccountCircle"></use>
-        </svg>
+        <img className="reviews-account" src={userIcon} alt="User icon"/>
         <div className="reviews__user-info">
           <h6 className="user-name">Adam Smith</h6>
           <div className="user-location">

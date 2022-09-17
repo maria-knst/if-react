@@ -43,7 +43,9 @@
     }
   }
   .reviews__user {
+    font-family: 'Roboto', sans-serif;
     margin: 24px 0;
+    display: flex;
     .reviews-account {
       width: 54px;
       height: 54px;
@@ -56,8 +58,10 @@
       padding: 0 20px;
       .user-name {
         font-size: 18px;
+        font-weight: 400;
       }
       .user-location {
+        display: flex;
         .reviews__flag {
           width: 16px;
         }

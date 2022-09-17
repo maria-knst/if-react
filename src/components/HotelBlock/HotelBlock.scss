@@ -35,6 +35,7 @@
     margin: 120px auto;
     .comment__flex-container {
       display: flex;
+      gap: 8px;
       justify-content: space-around;
       position: relative;
     }
