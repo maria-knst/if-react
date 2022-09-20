@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Calendar from '../Calendar/Calendar'
 import PeopleFilter from '../PeopleFilter/PeopleFilter'
 
 import './FormDivButton.scss'
+
+import {CalendarContext} from "../../context/CalendarContext/CalendarContext";
+
+
 
 const FormDivButton = ({ type }) => {
   const [visible, setVisible] = useState(false)
@@ -11,14 +15,22 @@ const FormDivButton = ({ type }) => {
     Children: 0,
     Rooms: 1,
   })
-  const [dataArguments, setDataArguments] = useState({
-    start: 'Tue 15 Sept',
-    end: 'Sat 19 Sept',
-  })
+
+  const context_value = useContext(CalendarContext)
 
   const handleClick = (e) => {
     e.preventDefault()
     setVisible(!visible)
+  }
+
+  const makeData = () => {
+    if(context_value.period.isDefault){
+      return 'Tue 15 Sep — Mon 24 Sep';
+    }else {
+      return (context_value.period.startDate.value.toDateString()
+          + '—' +
+          context_value.period.startDate.value.toDateString());
+    }
   }
 
   return (
@@ -30,11 +42,11 @@ const FormDivButton = ({ type }) => {
                 return `${el[0]} ${el[1]}`
               })
               .join(' — ')
-          : dataArguments.start + '—' + dataArguments.end}
+          : makeData()}
       </button>
       {visible &&
         (type === 'date' ? (
-          <Calendar setDataArguments={setDataArguments} />
+          <Calendar />
         ) : (
           <PeopleFilter setPeopleFilterArguments={setPeopleFilterArguments} />
         ))}

@@ -1,28 +1,41 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import arrow from '../../images/svg/Arrow.svg'
+
 import CalendarMonth from '../CalendarMonth/CalendarMonth'
+import { CalendarContext } from '../../context/CalendarContext/CalendarContext'
 
 import './Calendar.scss'
 
-const period = {
-  start: 'Tue 15 Sept',
-  end: 'Sat 19 Sept',
-}
-const clickedPeriod = {
-  start: false,
-  end: false,
-}
+const Calendar = () => {
+  const value = useContext(CalendarContext)
 
-const Calendar = ({ setDataArguments }) => {
   const madePeriod = (item) => {
-    if (!clickedPeriod.start && !clickedPeriod.end) {
-      period.start = `${item.daysInMonth} ${item.month}`
-      clickedPeriod.start = true
-    } else if (clickedPeriod.start && !clickedPeriod.end) {
-      period.end = `${item.daysInMonth} ${item.month}`
-      clickedPeriod.end = true
+    if (!value.period.startDate.isClicked && !value.period.endDate.isClicked) {
+      value.setPeriod({
+        ...value.period,
+        startDate: {
+          value: new Date(2022, item.month, item.daysInMonth),
+          isClicked: true,
+        },
+      })
+    } else if (value.period.startDate.isClicked &&
+              !value.period.endDate.isClicked) {
+      value.setPeriod({
+        ...value.period,
+        endDate: {
+          value: new Date(2022, item.month, item.daysInMonth),
+          isClicked: true,
+        },
+        isDefault: false,
+      })
     }
-    setDataArguments(period)
+    else{
+      value.setPeriod({
+        ...value.period,
+        isDefault: true,
+      })
+    }
+    console.log(value.period);
   }
 
   return (

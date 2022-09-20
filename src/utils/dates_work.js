@@ -34,8 +34,8 @@ const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek, isCurMonth) => {
 
   const todayDay = new Date().getDate()
   const curMonth = isCurMonth
-    ? months[today.getMonth()]
-    : months[today.getMonth() + 1]
+    ? today.getMonth()
+    : today.getMonth() + 1
 
   let count = daysInMonth - dayOfWeek + 1
   const matrix = makeCalendarMatrix(daysInMonth, daysInWeek)
@@ -127,5 +127,12 @@ const findToday = (index, innerIndex) => {
     pastDays[i].classList.add('cal_past-day')
   }
 }
+
+export const DEFAULT_START_DATE = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+export const DEFAULT_END_DATE = new Date(today.getFullYear(), today.getMonth(), new Date(
+    today.getFullYear(),
+    today.getMonth() + 1,
+    0,
+).getDate());
 
 export { findToday, getCalendarMonth }

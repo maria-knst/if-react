@@ -31,9 +31,6 @@
     background: $color_grey;
   }
 
-  .cal_today {
-    color: $color_light-blue;
-  }
   .cal_past-day {
     color: $color-grey;
   }
@@ -46,6 +43,9 @@
   }
   .cal_not-current-month {
     visibility: hidden;
+  }
+  .cal_today {
+    color: $color_light-blue;
   }
 }
 

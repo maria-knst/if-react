@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 
 const CalendarDay = ({
-  isToday,
-  isPast,
-  isNotCurrentMonth,
-  dayItem,
-  click,
+  isToday, isPast, isNotCurrentMonth, isIncludedInPeriod,
+  dayItem, click,
 }) => {
   const [clicked, setClicked] = useState(false)
 
@@ -14,16 +11,17 @@ const CalendarDay = ({
       e.preventDefault()
     } else {
       setClicked(!clicked)
-      click(dayItem)
+      click(dayItem);
     }
   }
 
   return (
     <div
       className={`cal_day cal_day-num cal_day-num-d
-      ${isToday && 'cal_today'} 
       ${isPast && 'cal_past-day'}
       ${isNotCurrentMonth && 'cal_not-current-month'}
+      ${isIncludedInPeriod && 'cal_choosing-day'}
+      ${isToday && 'cal_today'} 
       ${clicked && 'cal_clicked-day'}`}
       onClick={handleClick}
     >

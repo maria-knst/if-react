@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {
   calendarMonth,
   calendarNextMonth,
@@ -9,9 +9,22 @@ import {
 
 import './CalendarMonth.scss'
 import CalendarDay from '../CalendarDay/CalendarDay'
+import {CalendarContext} from "../../context/CalendarContext/CalendarContext";
+
 
 const CalendarMonth = ({ id_, getClickedDay }) => {
   const viewMonth = id_ === 'current' ? calendarMonth : calendarNextMonth
+  const context_value = useContext(CalendarContext);
+
+  const isPeriod = (matrixItem) => {
+    if(!context_value.period){
+      return false;
+    }
+    return matrixItem.month === context_value.period.startDate.value.getMonth() &&
+        matrixItem.daysInMonth > context_value.period.startDate.value.getDate() &&
+        matrixItem.daysInMonth < context_value.period.endDate.value.getDate();
+
+  }
 
   const madeDay = (index, innerIndex, innerItem) => {
     if (innerItem.currentDay) {
@@ -20,22 +33,26 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
           dayItem={innerItem}
           isToday={true}
           click={getClickedDay}
-          key={index + innerIndex}
+          key={index *7 + innerIndex}
+          isIncludedInPeriod={isPeriod(innerItem)}
         />
       )
-    } else {
+    }
+    else {
       return !innerItem.isPast ? (
         <CalendarDay
           dayItem={innerItem}
           click={getClickedDay}
-          key={index + innerIndex}
+          key={index * 7 + innerIndex}
+          isIncludedInPeriod={isPeriod(innerItem)}
         />
       ) : (
         <CalendarDay
           dayItem={innerItem}
           isPast={true}
           click={getClickedDay}
-          key={index + innerIndex}
+          key={index * 7 + innerIndex}
+          isIncludedInPeriod={isPeriod(innerItem)}
         />
       )
     }
@@ -65,7 +82,8 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
                   <CalendarDay
                     dayItem={innerItem}
                     click={getClickedDay}
-                    key={index + innerIndex}
+                    key={index * 7 + innerIndex}
+                    isIncludedInPeriod={isPeriod(innerItem)}
                   />
                 )
               ) : (
@@ -73,7 +91,8 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
                   dayItem={innerItem}
                   isNotCurrentMonth={true}
                   click={getClickedDay}
-                  key={index + innerIndex}
+                  key={index * 7 + innerIndex}
+                  isIncludedInPeriod={isPeriod(innerItem)}
                 />
               ),
             ),
