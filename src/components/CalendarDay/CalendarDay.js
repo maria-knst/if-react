@@ -1,8 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import {CalendarContext} from "../../context/CalendarContext/CalendarContext";
 
 const CalendarDay = ({
-  isToday, isPast, isNotCurrentMonth, isIncludedInPeriod,
-  dayItem, click,
+  isToday,
+  isPast,
+  isNotCurrentMonth,
+  isIncludedInPeriod,
+  dayItem,
+  click,
 }) => {
   const [clicked, setClicked] = useState(false)
 
@@ -11,7 +16,7 @@ const CalendarDay = ({
       e.preventDefault()
     } else {
       setClicked(!clicked)
-      click(dayItem);
+      click(dayItem)
     }
   }
 
@@ -22,7 +27,7 @@ const CalendarDay = ({
       ${isNotCurrentMonth && 'cal_not-current-month'}
       ${isIncludedInPeriod && 'cal_choosing-day'}
       ${isToday && 'cal_today'} 
-      ${clicked && 'cal_clicked-day'}`}
+      ${(clicked) && 'cal_clicked-day'}`}
       onClick={handleClick}
     >
       {dayItem.daysInMonth}

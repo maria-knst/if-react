@@ -6,37 +6,51 @@ import { CalendarContext } from '../../context/CalendarContext/CalendarContext'
 
 import './Calendar.scss'
 
-const Calendar = () => {
-  const value = useContext(CalendarContext)
+const usePeriod = () => {
+  const { period, setPeriod } = useContext(CalendarContext)
 
   const madePeriod = (item) => {
-    if (!value.period.startDate.isClicked && !value.period.endDate.isClicked) {
-      value.setPeriod({
-        ...value.period,
+    const returningObject = {
+      value: new Date(2022, item.month, item.daysInMonth),
+      isClicked: true,
+    }
+    if (!period.startDate.isClicked && !period.endDate.isClicked) {
+      setPeriod({ ...period, startDate: returningObject })
+    } else if (period.startDate.isClicked && !period.endDate.isClicked) {
+      if (
+        (period.startDate.value.getMonth() === item.month &&
+          period.startDate.value.getDate() > item.daysInMonth) || //If second date greater than first (month the same) - change them
+        period.startDate.value.getMonth() > item.month // If month of first greater than month of second - change them
+      ) {
+        setPeriod({
+          endDate: {
+            value: period.startDate.value,
+            isClicked: period.startDate.isClicked,
+          },
+          startDate: returningObject,
+        })
+      } else {
+        setPeriod({ ...period, endDate: returningObject })
+      }
+    } else {
+      setPeriod({
         startDate: {
           value: new Date(2022, item.month, item.daysInMonth),
-          isClicked: true,
+          isClicked: false,
         },
-      })
-    } else if (value.period.startDate.isClicked &&
-              !value.period.endDate.isClicked) {
-      value.setPeriod({
-        ...value.period,
         endDate: {
           value: new Date(2022, item.month, item.daysInMonth),
-          isClicked: true,
+          isClicked: false,
         },
-        isDefault: false,
       })
     }
-    else{
-      value.setPeriod({
-        ...value.period,
-        isDefault: true,
-      })
-    }
-    console.log(value.period);
   }
+
+  return madePeriod
+}
+
+const Calendar = () => {
+  const madePeriod = usePeriod()
 
   return (
     <div className="top__calendar">
