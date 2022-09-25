@@ -22,18 +22,18 @@ const FormDivButton = ({ type }) => {
   }
 
   const makeData = () => {
-    const start_date = context_value.period.startDate;
-    const end_date = context_value.period.endDate;
-    if (!start_date.isClicked && !end_date.isClicked
-        || !start_date.isClicked && end_date.isClicked) {
+    const start_date = context_value.period.startDate
+    const end_date = context_value.period.endDate
+    if (
+      (!start_date.isClicked && !end_date.isClicked) ||
+      (!start_date.isClicked && end_date.isClicked)
+    ) {
       return 'Tue 15 Sep — Mon 24 Sep'
-    }else if(start_date.isClicked && !end_date.isClicked){
+    } else if (start_date.isClicked && !end_date.isClicked) {
       return `${start_date.value.toDateString()} — Mon 24 Sep'`
-    }
-    else {
+    } else {
       return (
-          start_date.value.toDateString() + '—' +
-          end_date.value.toDateString()
+        start_date.value.toDateString() + '—' + end_date.value.toDateString()
       )
     }
   }

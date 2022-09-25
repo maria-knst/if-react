@@ -32,18 +32,57 @@ const usePeriod = () => {
       } else {
         setPeriod({ ...period, endDate: returningObject })
       }
+    }else if(!period.startDate.isClicked && period.endDate.isClicked){
+      if (
+          (period.endDate.value.getMonth() === item.month &&
+              period.endDate.value.getDate() < item.daysInMonth) || //If second date less than first (month the same) - change them
+          period.endDate.value.getMonth() < item.month // If month of first less than month of second - change them
+      ) {
+        setPeriod({
+          startDate: {
+            value: period.endDate.value,
+            isClicked: period.endDate.isClicked,
+          },
+          endDate: returningObject,
+        })
+      } else {
+        setPeriod({ ...period, startDate: returningObject })
+      }
     } else {
-      setPeriod({
-        startDate: {
-          value: new Date(2022, item.month, item.daysInMonth),
-          isClicked: false,
-        },
-        endDate: {
-          value: new Date(2022, item.month, item.daysInMonth),
-          isClicked: false,
-        },
-      })
+      if (item.daysInMonth === period.startDate.value.getDate() &&
+        item.month === period.startDate.value.getMonth()
+      ) {
+        setPeriod({
+          ...period,
+          startDate: {
+            value: new Date(2022, item.month, item.daysInMonth),
+            isClicked: false,
+          },
+        })
+      } else if (item.daysInMonth === period.endDate.value.getDate() &&
+        item.month === period.endDate.value.getMonth()
+      ) {
+        setPeriod({
+          ...period,
+          endDate: {
+            value: new Date(2022, item.month, item.daysInMonth),
+            isClicked: false,
+          },
+        })
+      } else {
+        setPeriod({
+          startDate: {
+            value: new Date(2022, item.month, item.daysInMonth),
+            isClicked: false,
+          },
+          endDate: {
+            value: new Date(2022, item.month, item.daysInMonth),
+            isClicked: false,
+          },
+        })
+      }
     }
+    console.log(period)
   }
 
   return madePeriod

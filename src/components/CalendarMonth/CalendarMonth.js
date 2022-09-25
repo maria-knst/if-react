@@ -16,27 +16,29 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
   const context_value = useContext(CalendarContext)
 
   const isPeriod = (matrixItem) => {
-    const start_date = context_value.period.startDate;
-    const end_date = context_value.period.endDate;
-    if (!context_value.period || !start_date.isClicked
-        || !end_date.isClicked) {
+    const start_date = context_value.period.startDate
+    const end_date = context_value.period.endDate
+    if (!context_value.period || !start_date.isClicked || !end_date.isClicked) {
       return false
     }
     if (
       matrixItem.month === start_date.value.getMonth() &&
       matrixItem.month === end_date.value.getMonth() &&
       matrixItem.daysInMonth > start_date.value.getDate() &&
-      matrixItem.daysInMonth < end_date.value.getDate()){
+      matrixItem.daysInMonth < end_date.value.getDate()
+    ) {
       return true
-    }
-    else if(matrixItem.month === start_date.value.getMonth() &&
-            matrixItem.month !== end_date.value.getMonth() &&
-            matrixItem.daysInMonth > start_date.value.getDate()){
+    } else if (
+      matrixItem.month === start_date.value.getMonth() &&
+      matrixItem.month !== end_date.value.getMonth() &&
+      matrixItem.daysInMonth > start_date.value.getDate()
+    ) {
       return true
-    }
-    else if(matrixItem.month !== start_date.value.getMonth() &&
-        matrixItem.month === end_date.value.getMonth() &&
-        matrixItem.daysInMonth < end_date.value.getDate()){
+    } else if (
+      matrixItem.month !== start_date.value.getMonth() &&
+      matrixItem.month === end_date.value.getMonth() &&
+      matrixItem.daysInMonth < end_date.value.getDate()
+    ) {
       return true
     }
   }

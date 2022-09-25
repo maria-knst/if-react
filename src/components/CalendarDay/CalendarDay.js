@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import {CalendarContext} from "../../context/CalendarContext/CalendarContext";
+import { CalendarContext } from '../../context/CalendarContext/CalendarContext'
 
 const CalendarDay = ({
   isToday,
@@ -27,7 +27,7 @@ const CalendarDay = ({
       ${isNotCurrentMonth && 'cal_not-current-month'}
       ${isIncludedInPeriod && 'cal_choosing-day'}
       ${isToday && 'cal_today'} 
-      ${(clicked) && 'cal_clicked-day'}`}
+      ${clicked && 'cal_clicked-day'}`}
       onClick={handleClick}
     >
       {dayItem.daysInMonth}
