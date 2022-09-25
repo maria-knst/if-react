@@ -14,9 +14,9 @@ const usePeriod = () => {
       value: new Date(2022, item.month, item.daysInMonth),
       isClicked: true,
     }
-    if (!period.startDate.isClicked && !period.endDate.isClicked) {
+    if (!period.startDate.isClicked && !period.endDate.isClicked) { //If none of dates is clicked
       setPeriod({ ...period, startDate: returningObject })
-    } else if (period.startDate.isClicked && !period.endDate.isClicked) {
+    } else if (period.startDate.isClicked && !period.endDate.isClicked) { //If start date is clicked
       if (
         (period.startDate.value.getMonth() === item.month &&
           period.startDate.value.getDate() > item.daysInMonth) || //If second date greater than first (month the same) - change them
@@ -32,11 +32,11 @@ const usePeriod = () => {
       } else {
         setPeriod({ ...period, endDate: returningObject })
       }
-    }else if(!period.startDate.isClicked && period.endDate.isClicked){
+    } else if (!period.startDate.isClicked && period.endDate.isClicked) { //If end date is clicked
       if (
-          (period.endDate.value.getMonth() === item.month &&
-              period.endDate.value.getDate() < item.daysInMonth) || //If second date less than first (month the same) - change them
-          period.endDate.value.getMonth() < item.month // If month of first less than month of second - change them
+        (period.endDate.value.getMonth() === item.month &&
+          period.endDate.value.getDate() < item.daysInMonth) || //If second date less than first (month the same) - change them
+        period.endDate.value.getMonth() < item.month // If month of first less than month of second - change them
       ) {
         setPeriod({
           startDate: {
@@ -48,8 +48,9 @@ const usePeriod = () => {
       } else {
         setPeriod({ ...period, startDate: returningObject })
       }
-    } else {
-      if (item.daysInMonth === period.startDate.value.getDate() &&
+    } else {                                                      //If two dates are clicked
+      if (
+        item.daysInMonth === period.startDate.value.getDate() &&
         item.month === period.startDate.value.getMonth()
       ) {
         setPeriod({
@@ -59,7 +60,8 @@ const usePeriod = () => {
             isClicked: false,
           },
         })
-      } else if (item.daysInMonth === period.endDate.value.getDate() &&
+      } else if (
+        item.daysInMonth === period.endDate.value.getDate() &&
         item.month === period.endDate.value.getMonth()
       ) {
         setPeriod({
@@ -73,7 +75,7 @@ const usePeriod = () => {
         setPeriod({
           startDate: {
             value: new Date(2022, item.month, item.daysInMonth),
-            isClicked: false,
+            isClicked: true,
           },
           endDate: {
             value: new Date(2022, item.month, item.daysInMonth),

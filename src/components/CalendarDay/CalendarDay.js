@@ -10,6 +10,7 @@ const CalendarDay = ({
   click,
 }) => {
   const [clicked, setClicked] = useState(false)
+  const context_value = useContext(CalendarContext)
 
   const handleClick = (e) => {
     if (isPast || isNotCurrentMonth) {
