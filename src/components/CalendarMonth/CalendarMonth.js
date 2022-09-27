@@ -9,69 +9,32 @@ import {
 
 import './CalendarMonth.scss'
 import CalendarDay from '../CalendarDay/CalendarDay'
-import { CalendarContext } from '../../context/CalendarContext/CalendarContext'
 
-const CalendarMonth = ({ id_, getClickedDay }) => {
+const CalendarMonth = ({ id_, selectedDates, setSelectedDates }) => {
   const viewMonth = id_ === 'current' ? calendarMonth : calendarNextMonth
-  const context_value = useContext(CalendarContext)
 
-  const isPeriod = (matrixItem) => {
-    const start_date = context_value.period.startDate
-    const end_date = context_value.period.endDate
-    if (!context_value.period || !start_date.isClicked || !end_date.isClicked) {
-      return false
-    }
-    if (
-      matrixItem.month === start_date.value.getMonth() &&
-      matrixItem.month === end_date.value.getMonth() &&
-      matrixItem.daysInMonth > start_date.value.getDate() &&
-      matrixItem.daysInMonth < end_date.value.getDate()
-    ) {
-      return true
-    } else if (
-      matrixItem.month === start_date.value.getMonth() &&
-      matrixItem.month !== end_date.value.getMonth() &&
-      matrixItem.daysInMonth > start_date.value.getDate()
-    ) {
-      return true
-    } else if (
-      matrixItem.month !== start_date.value.getMonth() &&
-      matrixItem.month === end_date.value.getMonth() &&
-      matrixItem.daysInMonth < end_date.value.getDate()
-    ) {
-      return true
-    }
-  }
 
-  const madeDay = (index, innerIndex, innerItem) => {
-    if (innerItem.currentDay) {
-      return (
-        <CalendarDay
-          dayItem={innerItem}
-          isToday={true}
-          click={getClickedDay}
-          key={index * 7 + innerIndex}
-          isIncludedInPeriod={isPeriod(innerItem)}
-        />
-      )
-    } else {
-      return !innerItem.isPast ? (
-        <CalendarDay
-          dayItem={innerItem}
-          click={getClickedDay}
-          key={index * 7 + innerIndex}
-          isIncludedInPeriod={isPeriod(innerItem)}
-        />
-      ) : (
-        <CalendarDay
-          dayItem={innerItem}
-          isPast={true}
-          click={getClickedDay}
-          key={index * 7 + innerIndex}
-          isIncludedInPeriod={isPeriod(innerItem)}
-        />
-      )
-    }
+  const handleSelectedDay = (day) => {
+    const clickedDay = new Date(2022, day.month, day.daysInMonth)
+    setSelectedDates( (prevState) => {
+      if(prevState.start && !prevState.end){
+        if(prevState.start.getMonth() === clickedDay.getMonth() &&
+           prevState.start.getDay() > clickedDay.getDay() ||
+           prevState.start.getMonth() > clickedDay.getMonth()){ //If start greater than end or
+          return { end: prevState.start, start: clickedDay }
+        }
+        else {
+          return { ...prevState, end:clickedDay }
+        }
+      }
+      else {
+        if(prevState.start && prevState.end){
+          return { start: clickedDay, end: null }
+        }else {
+          return { ...prevState, start:clickedDay }
+        }
+      }
+    })
   }
 
   return (
@@ -90,28 +53,12 @@ const CalendarMonth = ({ id_, getClickedDay }) => {
           ))}
 
           {viewMonth.map((item, index) =>
-            item.map((innerItem, innerIndex) =>
-              innerItem.isCurrentMonth ? (
-                id_ === 'current' ? (
-                  madeDay(index, innerIndex, innerItem)
-                ) : (
-                  <CalendarDay
-                    dayItem={innerItem}
-                    click={getClickedDay}
-                    key={index * 7 + innerIndex}
-                    isIncludedInPeriod={isPeriod(innerItem)}
-                  />
-                )
-              ) : (
-                <CalendarDay
-                  dayItem={innerItem}
-                  isNotCurrentMonth={true}
-                  click={getClickedDay}
-                  key={index * 7 + innerIndex}
-                  isIncludedInPeriod={isPeriod(innerItem)}
-                />
-              ),
-            ),
+            item.map((innerItem, innerIndex) => (
+                <CalendarDay dayItem={innerItem}
+              selectedDates={selectedDates}
+              click={handleSelectedDay}
+              key={index*7 + innerIndex} />
+                )),
           )}
         </div>
       </div>

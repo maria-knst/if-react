@@ -1,10 +1,9 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import Calendar from '../Calendar/Calendar'
 import PeopleFilter from '../PeopleFilter/PeopleFilter'
 
 import './FormDivButton.scss'
 
-import { CalendarContext } from '../../context/CalendarContext/CalendarContext'
 
 const FormDivButton = ({ type }) => {
   const [visible, setVisible] = useState(false)
@@ -14,7 +13,11 @@ const FormDivButton = ({ type }) => {
     Rooms: 1,
   })
 
-  const context_value = useContext(CalendarContext)
+
+  const [selectedDates, setSelectedDates] = useState({
+    start: null,
+    end: null,
+  })
 
   const handleClick = (e) => {
     e.preventDefault()
@@ -22,18 +25,17 @@ const FormDivButton = ({ type }) => {
   }
 
   const makeData = () => {
-    const start_date = context_value.period.startDate
-    const end_date = context_value.period.endDate
-    if (
-      (!start_date.isClicked && !end_date.isClicked) ||
-      (!start_date.isClicked && end_date.isClicked)
-    ) {
-      return 'Tue 15 Sep — Mon 24 Sep'
-    } else if (start_date.isClicked && !end_date.isClicked) {
-      return `${start_date.value.toDateString()} — Mon 24 Sep'`
-    } else {
+    if(selectedDates.start === null && selectedDates.end === null){
+      return "Mon 11 Sep — Sun 19 Sep"
+    }else if (selectedDates.start && selectedDates.end === null){
+      return `${selectedDates.start.toDateString()} — Sun 19 Sep`
+    }
+    else if (selectedDates.start === null && selectedDates.end){
+      return `Mon 11 Sep — ${selectedDates.end.toDateString()}`
+    }
+    else {
       return (
-        start_date.value.toDateString() + '—' + end_date.value.toDateString()
+          selectedDates.start.toDateString() + '—' + selectedDates.end.toDateString()
       )
     }
   }
@@ -51,7 +53,10 @@ const FormDivButton = ({ type }) => {
       </button>
       {visible &&
         (type === 'date' ? (
-          <Calendar />
+          <Calendar
+            selectedDates={selectedDates}
+            setSelectedDates={setSelectedDates}
+          />
         ) : (
           <PeopleFilter setPeopleFilterArguments={setPeopleFilterArguments} />
         ))}

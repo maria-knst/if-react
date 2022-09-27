@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 import './TopForm.css'
 import FormDivButton from '../FormDivButton/FormDivButton'
-import CalendarContextProvider from '../../context/CalendarContext/CalendarContextProvider'
 
 const TopForm = ({ createRequest }) => {
   const [destination, setDestination] = useState('New York')
@@ -30,9 +29,7 @@ const TopForm = ({ createRequest }) => {
           onChange={(event) => setDestination(event.target.value)}
           required
         />
-        <CalendarContextProvider>
-          <FormDivButton type="date" />
-        </CalendarContextProvider>
+        <FormDivButton type="date" />
         <FormDivButton type="people" />
 
         <button

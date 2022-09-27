@@ -33,6 +33,7 @@
 
   .cal_past-day {
     color: $color-grey;
+    pointer-events: none;
   }
   .cal_clicked-day {
     background: $color_light-blue;
