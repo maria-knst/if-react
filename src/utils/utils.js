@@ -1,3 +1,5 @@
+import { today } from './dates_work'
+
 const madeQueueFrom = (array, start, end) => {
   return array.slice(start, end)
 }
@@ -49,5 +51,8 @@ const bubbleSort = (data) => {
 
 export const VISIBLE_DIV_SIZE = 4
 export const BASE_PATH = 'https://fe-student-api.herokuapp.com/api/hotels'
+export const CHILD_YEARS = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+]
 
 export { madeQueueFrom, decrement, increment, getMatchedElements, bubbleSort }
