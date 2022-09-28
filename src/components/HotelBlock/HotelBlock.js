@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
 import './HotelBlock.scss'
-import { useLocation } from 'react-router-dom'
-import { BASE_PATH, getIdFromURL } from '../../utils/utils'
+import {useLocation, useParams} from 'react-router-dom'
+import { BASE_PATH} from '../../utils/utils'
 import Comment from '../Comment/Comment'
 import Arrow from '../Arrow/Arrow'
 
@@ -16,8 +16,7 @@ const initialHotel = {
 }
 
 const HotelBlock = () => {
-  const location = useLocation()
-  const elementID = getIdFromURL(location.pathname)
+  const { hotelId } = useParams()
   const [hotelElement, setHotelElement] = useState(initialHotel)
 
   const getElementByID = async (id) => {
@@ -27,10 +26,9 @@ const HotelBlock = () => {
   }
 
   useEffect(() => {
-    getElementByID(elementID)
+    getElementByID(hotelId)
   }, [])
 
-  console.log(hotelElement)
   return (
     <section className="hotel_block">
       <div className="hotel_description container col-12">

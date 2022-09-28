@@ -47,7 +47,6 @@ function App() {
             </div>
           }
         />
-        <Route />
         <Route path="/hotel/:hotelId" element={<HotelPage />} />
       </Routes>
     </Router>
