@@ -27,12 +27,13 @@ const makeCalendarMatrix = (daysInMonth, daysInWeek) => {
   return matrix
 }
 
-const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
+const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek, isCurMonth) => {
   if (dayOfWeek >= daysInWeek) {
     return false
   }
 
   const todayDay = new Date().getDate()
+  const curMonth = isCurMonth ? today.getMonth() : today.getMonth() + 1
 
   let count = daysInMonth - dayOfWeek + 1
   const matrix = makeCalendarMatrix(daysInMonth, daysInWeek)
@@ -46,6 +47,8 @@ const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
           isCurrentMonth: start,
           selectedDay: false,
           currentDay: daysInMonth === todayDay && start === true,
+          isPast: daysInMonth < todayDay || start === false,
+          month: curMonth,
         }
         start = false // month is over
       } else {
@@ -58,6 +61,8 @@ const getCalendarMonth = (daysInMonth, daysInWeek, dayOfWeek) => {
           isCurrentMonth: start,
           selectedDay: false,
           currentDay: count % daysInMonth === todayDay && start === true, //checked if day is today day
+          isPast: count % daysInMonth < todayDay || start === false,
+          month: curMonth,
         }
       }
       count++
@@ -101,12 +106,14 @@ export const calendarMonth = getCalendarMonth(
   getParameters().daysInMonth,
   getParameters().daysInWeek,
   getParameters().dayOfWeek,
+  true,
 )
 
 export const calendarNextMonth = getCalendarMonth(
   getParametersForNextMonth().daysInMonth,
   getParametersForNextMonth().daysInWeek,
   getParametersForNextMonth().dayOfWeek,
+  false,
 )
 
 const findToday = (index, innerIndex) => {
@@ -118,5 +125,16 @@ const findToday = (index, innerIndex) => {
     pastDays[i].classList.add('cal_past-day')
   }
 }
+
+export const DEFAULT_START_DATE = new Date(
+  today.getFullYear(),
+  today.getMonth(),
+  today.getDate(),
+)
+export const DEFAULT_END_DATE = new Date(
+  today.getFullYear(),
+  today.getMonth(),
+  new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate(),
+)
 
 export { findToday, getCalendarMonth }

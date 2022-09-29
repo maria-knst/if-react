@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import {
   calendarMonth,
   calendarNextMonth,
@@ -8,9 +8,34 @@ import {
 } from '../../utils/dates_work'
 
 import './CalendarMonth.scss'
+import CalendarDay from '../CalendarDay/CalendarDay'
 
-const CalendarMonth = ({ id_ }) => {
+const CalendarMonth = ({ id_, selectedDates, setSelectedDates }) => {
   const viewMonth = id_ === 'current' ? calendarMonth : calendarNextMonth
+
+
+  const handleSelectedDay = (day) => {
+    const clickedDay = new Date(2022, day.month, day.daysInMonth)
+    setSelectedDates( (prevState) => {
+      if(prevState.start && !prevState.end){
+        if(prevState.start.getMonth() === clickedDay.getMonth() &&
+           prevState.start.getDay() > clickedDay.getDay() ||
+           prevState.start.getMonth() > clickedDay.getMonth()){ //If start greater than end or
+          return { end: prevState.start, start: clickedDay }
+        }
+        else {
+          return { ...prevState, end:clickedDay }
+        }
+      }
+      else {
+        if(prevState.start && prevState.end){
+          return { start: clickedDay, end: null }
+        }else {
+          return { ...prevState, start:clickedDay }
+        }
+      }
+    })
+  }
 
   return (
     <div className="calendar-month">
@@ -28,23 +53,12 @@ const CalendarMonth = ({ id_ }) => {
           ))}
 
           {viewMonth.map((item, index) =>
-            item.map((innerItem, innerIndex) =>
-              innerItem.isCurrentMonth ? (
-                <div
-                  className="cal_day cal_day-num cal_day-num-d"
-                  key={index + innerIndex}
-                >
-                  {innerItem.daysInMonth}
-                </div>
-              ) : (
-                <div
-                  className="cal_day cal_day-num cal_day-num-d cal_not-current-month"
-                  key={index + innerIndex}
-                >
-                  {innerItem.daysInMonth}
-                </div>
-              ),
-            ),
+            item.map((innerItem, innerIndex) => (
+                <CalendarDay dayItem={innerItem}
+              selectedDates={selectedDates}
+              click={handleSelectedDay}
+              key={index*7 + innerIndex} />
+                )),
           )}
         </div>
       </div>
