@@ -1,0 +1,77 @@
+@import '../../styles/styles.scss';
+
+.footer {
+  padding: 120px 0;
+  background: $color_dark-blue;
+  color: $color_white;
+  font-size: 20px;
+  line-height: 23px;
+  font-style: normal;
+  order: 8;
+  font-family: 'Roboto', sans-serif;
+  .foot-logo-respons {
+    display: none;
+  }
+  .foot-groups {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    .foot-title {
+      font-weight: 500;
+    }
+    .foot-list {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 65px;
+      list-style: none;
+      a {
+        text-decoration: none;
+        color: $color_white;
+        padding: 24px 0 0;
+      }
+
+      a:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+  .foot-text {
+    margin: auto;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  @include _600 {
+    padding: 40px 0;
+
+    .foot-logo-respons {
+      display: block;
+      margin: auto auto 40px;
+    }
+
+    .foot-groups {
+      margin: 0 15%;
+      gap: 4%;
+      font-size: 15px;
+      text-align: center;
+      .foot-element {
+        width: 25%;
+        .foot-title {
+          margin-bottom: 30px;
+          text-decoration: underline;
+        }
+        .foot-list {
+          display: none;
+        }
+      }
+      .foot-grow-element {
+        width: 45%;
+      }
+    }
+    .foot-text {
+      margin-left: 20%;
+      font-size: 12px;
+    }
+  }
+}

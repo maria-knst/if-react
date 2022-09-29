@@ -1,9 +1,11 @@
 import React from 'react'
 import './PlaceElement.css'
 
-const PlaceElement = ({ imageUrl, name, country, city }) => {
+import { Link } from 'react-router-dom'
+
+const PlaceElement = ({ imageUrl, name, country, city, imageId }) => {
   return (
-    <div className="places__element col-3">
+    <Link to={`/hotel/${imageId}`} className="places__element col-3">
       <img src={imageUrl} className="places__image" alt="home-img" />
       <div className={`places__home-description`}>
         <p className="places__label">{name}</p>
@@ -11,7 +13,7 @@ const PlaceElement = ({ imageUrl, name, country, city }) => {
           {city}, {country}
         </p>
       </div>
-    </div>
+    </Link>
   )
 }
 

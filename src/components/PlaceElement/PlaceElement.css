@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  text-decoration: none;
 }
 .places__element .places__home-description {
   background: #eaf0f9;

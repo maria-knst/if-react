@@ -1,0 +1,43 @@
+@import '../../styles/styles.scss';
+
+.hotel_block {
+  .hotel_description {
+    display: flex;
+    margin: 80px auto;
+    .hotel_image-container {
+      transition: opacity 0.5s linear;
+      width: 70%;
+      opacity: 0.85;
+      .hotel_image {
+        width: 100%;
+      }
+    }
+    .hotel_image-container:hover {
+      opacity: 1;
+    }
+    .hotel_info-container {
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      padding: 4px 24px;
+      h2 {
+        margin: 4px 4px 12px;
+      }
+      .hotel_destination {
+        text-align: end;
+        color: $color-light-blue;
+      }
+    }
+  }
+  .hotel_comments {
+    margin: 120px auto;
+    .comment__flex-container {
+      display: flex;
+      gap: 8px;
+      justify-content: space-around;
+      position: relative;
+    }
+  }
+}

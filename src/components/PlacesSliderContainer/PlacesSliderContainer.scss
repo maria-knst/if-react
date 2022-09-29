@@ -1,6 +1,44 @@
+@import '../../styles/styles.scss';
+
 .places__flex-container {
   display: flex;
   gap: 1.5%;
   margin: 105px auto 0;
   position: relative;
+
+  @include _840 {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .places__element {
+      width: 48%;
+    }
+    .hidden {
+      display: none;
+    }
+  }
+
+  @include _600 {
+    margin: 35px auto 0;
+  }
+
+  @include _520 {
+    .places__arrow {
+      width: 28px;
+      height: 28px;
+      top: 30%;
+      left: calc(100% - 20px);
+    }
+  }
+
+  @include _362 {
+    font-size: 12px;
+
+    .places__label {
+      padding: 4px 0;
+      font-size: 12px;
+    }
+    .places__arrow {
+      top: 40%;
+    }
+  }
 }

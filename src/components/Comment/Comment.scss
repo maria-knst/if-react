@@ -1,0 +1,79 @@
+@import '../../styles/styles.scss';
+
+.reviews__info-part {
+  max-width: 40%;
+  background: $color_light-grey;
+  margin: 0;
+  padding: 24px;
+  .reviews__destination {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    .reviews__hostel {
+      color: $color_light-blue;
+      .reviews__hostel-name {
+        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 14px;
+      }
+      .reviews__hostel-location {
+        font-weight: 400;
+        font-size: 18px;
+      }
+    }
+    .reviews__score {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      .reviews__score-p {
+        font-size: 14px;
+        color: $color_grey;
+      }
+      .reviews__score-num {
+        width: 48px;
+        height: 32px;
+        color: $color_white;
+        background: $color_dark-blue;
+        border-radius: 8px;
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 12px;
+        padding: 4px 0;
+      }
+    }
+  }
+  .reviews__user {
+    font-family: 'Roboto', sans-serif;
+    margin: 24px 0;
+    display: flex;
+    .reviews-account {
+      width: 54px;
+      height: 54px;
+      fill: $color_grey;
+    }
+    .reviews__user-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 0 20px;
+      .user-name {
+        font-size: 18px;
+        font-weight: 400;
+      }
+      .user-location {
+        display: flex;
+        .reviews__flag {
+          width: 16px;
+        }
+        p {
+          font-size: 18px;
+          color: $color_medium-grey;
+          padding-left: 4px;
+        }
+      }
+    }
+  }
+  .reviews__review {
+    font-size: 18px;
+  }
+}
