@@ -7,15 +7,15 @@ import TopApps from '../TopApps/TopApps'
 import './TopSection.css'
 import backgroundImage from '../../images/Top-section-castelmezzano.jpg'
 
-const TopSection = ({ children, isAutoris }) => {
+const TopSection = ({ children, isAutoriz, setAutoriz }) => {
   return (
     <header
       className="top-section"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <TopFrame />
+      <TopFrame isAutoriz={isAutoriz} setAutoriz={setAutoriz} />
       <div className="container col-12">
-      {isAutoris ? (
+        {isAutoriz ? (
           <>
             <Heading>
               Discover stays <br />
@@ -24,11 +24,10 @@ const TopSection = ({ children, isAutoris }) => {
             {children}
             <TopApps />
           </>
-      ) : (
+        ) : (
           <>{children}</>
-      )}
-        </div>
-
+        )}
+      </div>
     </header>
   )
 }

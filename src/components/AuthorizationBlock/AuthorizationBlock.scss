@@ -6,14 +6,13 @@
   height: 40%;
   background: $color_white;
 
-  .autoris_title{
-      color: $color_dark-grey;
+  .autoris_title {
+    color: $color_dark-grey;
   }
 
-  .autoris_form{
+  .autoris_form {
     display: flex;
     flex-direction: column;
     color: $color_dark-grey;
   }
-
 }

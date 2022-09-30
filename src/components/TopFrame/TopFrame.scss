@@ -1,6 +1,7 @@
 @import '../../styles/styles';
 
 .top-frame {
+  position: relative;
   padding: 50px 0 10px;
   margin-bottom: 30px;
   display: flex;
@@ -17,6 +18,10 @@
   .top-logo,
   .top-account {
     height: 50px;
+  }
+
+  .top-account_autoriz{
+    fill: $color_tawny;
   }
 
   .top-logo {
@@ -69,3 +74,4 @@
     }
   }
 }
+

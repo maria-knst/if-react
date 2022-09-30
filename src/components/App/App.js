@@ -11,7 +11,7 @@ import React from 'react'
 import { BASE_PATH } from '../../utils/utils'
 import HotelPage from '../HotelPage/HotelPage'
 import Footer from '../Footer/Footer'
-import AuthorizationBlock from "../AuthorizationBlock/AuthorizationBlock";
+import AuthorizationBlock from '../AuthorizationBlock/AuthorizationBlock'
 
 function App() {
   const [availableHotelsArray, setAvailableHotelsArray] = useState([])
@@ -40,22 +40,21 @@ function App() {
           element={
             <div className="App">
               {autoriz ? (
-                  <>
-                    <TopSection isAutoris={autoriz}>
+                <>
+                  <TopSection isAutoriz={autoriz} setAutoriz={setAutoriz}>
                     <TopForm createRequest={madeHotelsArray} />
                   </TopSection>
-                    {hotelsIsVisible && (
-                        <AvailableHotelsSection array={availableHotelsArray} />
-                    )}
-                    <HomesSection />
-                    <Footer />
-                  </>
+                  {hotelsIsVisible && (
+                    <AvailableHotelsSection array={availableHotelsArray} />
+                  )}
+                  <HomesSection />
+                  <Footer />
+                </>
               ) : (
-                  <TopSection isAutoris={autoriz}>
-                    <AuthorizationBlock setAutoriz={setAutoriz}/>
-                  </TopSection>
+                <TopSection isAutoriz={autoriz}>
+                  <AuthorizationBlock setAutoriz={setAutoriz} />
+                </TopSection>
               )}
-
             </div>
           }
         />
