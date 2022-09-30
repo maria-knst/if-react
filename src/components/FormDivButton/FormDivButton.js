@@ -4,7 +4,6 @@ import PeopleFilter from '../PeopleFilter/PeopleFilter'
 
 import './FormDivButton.scss'
 
-
 const FormDivButton = ({ type }) => {
   const [visible, setVisible] = useState(false)
   const [peopleFilterArguments, setPeopleFilterArguments] = useState({
@@ -12,7 +11,6 @@ const FormDivButton = ({ type }) => {
     Children: 0,
     Rooms: 1,
   })
-
 
   const [selectedDates, setSelectedDates] = useState({
     start: null,
@@ -25,17 +23,17 @@ const FormDivButton = ({ type }) => {
   }
 
   const makeData = () => {
-    if(selectedDates.start === null && selectedDates.end === null){
-      return "Mon 11 Sep — Sun 19 Sep"
-    }else if (selectedDates.start && selectedDates.end === null){
+    if (selectedDates.start === null && selectedDates.end === null) {
+      return 'Mon 11 Sep — Sun 19 Sep'
+    } else if (selectedDates.start && selectedDates.end === null) {
       return `${selectedDates.start.toDateString()} — Sun 19 Sep`
-    }
-    else if (selectedDates.start === null && selectedDates.end){
+    } else if (selectedDates.start === null && selectedDates.end) {
       return `Mon 11 Sep — ${selectedDates.end.toDateString()}`
-    }
-    else {
+    } else {
       return (
-          selectedDates.start.toDateString() + '—' + selectedDates.end.toDateString()
+        selectedDates.start.toDateString() +
+        '—' +
+        selectedDates.end.toDateString()
       )
     }
   }

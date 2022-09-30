@@ -13,25 +13,24 @@ import CalendarDay from '../CalendarDay/CalendarDay'
 const CalendarMonth = ({ id_, selectedDates, setSelectedDates }) => {
   const viewMonth = id_ === 'current' ? calendarMonth : calendarNextMonth
 
-
   const handleSelectedDay = (day) => {
     const clickedDay = new Date(2022, day.month, day.daysInMonth)
-    setSelectedDates( (prevState) => {
-      if(prevState.start && !prevState.end){
-        if(prevState.start.getMonth() === clickedDay.getMonth() &&
-           prevState.start.getDay() > clickedDay.getDay() ||
-           prevState.start.getMonth() > clickedDay.getMonth()){ //If start greater than end or
+    setSelectedDates((prevState) => {
+      if (prevState.start && !prevState.end) {
+        if (
+          (prevState.start.getMonth() === clickedDay.getMonth() &&
+            prevState.start.getDay() > clickedDay.getDay()) ||
+          prevState.start.getMonth() > clickedDay.getMonth()
+        ) {
           return { end: prevState.start, start: clickedDay }
+        } else {
+          return { ...prevState, end: clickedDay }
         }
-        else {
-          return { ...prevState, end:clickedDay }
-        }
-      }
-      else {
-        if(prevState.start && prevState.end){
+      } else {
+        if (prevState.start && prevState.end) {
           return { start: clickedDay, end: null }
-        }else {
-          return { ...prevState, start:clickedDay }
+        } else {
+          return { ...prevState, start: clickedDay }
         }
       }
     })
@@ -54,11 +53,13 @@ const CalendarMonth = ({ id_, selectedDates, setSelectedDates }) => {
 
           {viewMonth.map((item, index) =>
             item.map((innerItem, innerIndex) => (
-                <CalendarDay dayItem={innerItem}
-              selectedDates={selectedDates}
-              click={handleSelectedDay}
-              key={index*7 + innerIndex} />
-                )),
+              <CalendarDay
+                dayItem={innerItem}
+                selectedDates={selectedDates}
+                click={handleSelectedDay}
+                key={index * 7 + innerIndex}
+              />
+            )),
           )}
         </div>
       </div>
