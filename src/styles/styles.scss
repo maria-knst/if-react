@@ -15,7 +15,7 @@ $top_border-radius: 8px;
 
 $main_font-family: 'Roboto', sans-serif;
 
-@mixin top_button{
+@mixin top_button {
   border: none;
   border-radius: $top_border-radius;
   background: $color_light-blue;

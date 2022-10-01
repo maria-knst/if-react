@@ -32,6 +32,7 @@ const AuthorizationBlock = ({ setAutoriz }) => {
             value={value.email}
             onChange={handleChange}
             className="top-autoriz_input"
+            required
           />
         </label>
         <label className="autoriz_label">
@@ -42,9 +43,13 @@ const AuthorizationBlock = ({ setAutoriz }) => {
             value={value.password}
             onChange={handleChange}
             className="top-autoriz_input"
+            minLength={4}
+            required
           />
         </label>
-        <button type="submit" className="top-autoriz-button">Send me</button>
+        <button type="submit" className="top-autoriz-button">
+          Send me
+        </button>
       </form>
     </div>
   )

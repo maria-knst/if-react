@@ -34,8 +34,7 @@ const TopForm = ({ createRequest }) => {
 
         <button
           onClick={handleSearch}
-          className="top-search-button top-search-button_clicked"
-        >
+          className="top-search-button top-search-button_clicked">
           Search
         </button>
       </div>
