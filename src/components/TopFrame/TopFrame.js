@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './TopFrame.scss'
 
 import Sprite from '../../images/svg/Sprite.svg'
-import signOut from '../../images/svg/Vector-out.svg'
 import Dropdown from '../Dropdown/Dropdown'
 
 const TopFrame = ({ isAutoriz, setAutoriz }) => {
+  const [dropdownVisible, setDropdownVisible] = useState(false)
+
   const handleClick = (e) => {
     e.preventDefault()
+    setDropdownVisible(false)
     setAutoriz(!isAutoriz)
+  }
+
+  const handleAccountClick = (e) => {
+    e.preventDefault()
+    if (isAutoriz) {
+      setDropdownVisible(!dropdownVisible)
+    }
   }
 
   return (
@@ -34,13 +43,13 @@ const TopFrame = ({ isAutoriz, setAutoriz }) => {
           <svg className="top-night hovered">
             <use href={`${Sprite}#Night`}></use>
           </svg>
-          <svg className="top-account hovered">
+          <svg className="top-account hovered" onClick={handleAccountClick}>
             <use
               href={`${Sprite}#AccountCircle`}
               className={`${isAutoriz && 'top-account_autoriz'}`}
             ></use>
           </svg>
-          <Dropdown isAutoriz={isAutoriz} handleClick={handleClick} />
+          <Dropdown isVisible={dropdownVisible} handleClick={handleClick} />
 
           <div className="top__menu"></div>
         </div>
