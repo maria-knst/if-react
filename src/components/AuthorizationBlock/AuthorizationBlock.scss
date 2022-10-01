@@ -1,18 +1,39 @@
 @import '../../styles/styles.scss';
 
-.autoris_block {
+.autoriz_block {
   margin: auto;
-  width: 40%;
-  height: 40%;
+  margin-top: 176px;
+  width: 460px / 1440px * 100%;
+  height: 364px / 900px * 100%;
   background: $color_white;
+  padding: 40px;
 
-  .autoris_title {
+  .autoriz_title {
     color: $color_dark-grey;
+    margin-bottom: 40px;
   }
 
-  .autoris_form {
+  .autoriz_form {
     display: flex;
     flex-direction: column;
     color: $color_dark-grey;
+    font-family: $main_font-family;
+    .autoriz_label{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      .top-autoriz_input{
+        margin: 8px 0 16px;
+        width: 100%;
+        height: 40px;
+        border: 2px solid $color_grey;
+        border-radius: 8px;
+      }
+    }
+    .top-autoriz-button{
+      height: 48px;
+      margin-top: 24px;
+      @include top_button;
+    }
   }
 }

@@ -21,28 +21,30 @@ const AuthorizationBlock = ({ setAutoriz }) => {
   }
 
   return (
-    <div className="autoris_block">
-      <h3 className="autoris_title">Sign in</h3>
-      <form onSubmit={handleSubmit} className="autoris_form">
-        <label className="autoris_label">
+    <div className="autoriz_block">
+      <h3 className="autoriz_title">Sign in</h3>
+      <form onSubmit={handleSubmit} className="autoriz_form">
+        <label className="autoriz_label">
           Email address:
           <input
             type="email"
             name="email"
             value={value.email}
             onChange={handleChange}
+            className="top-autoriz_input"
           />
         </label>
-        <label className="autoris_label">
+        <label className="autoriz_label">
           Password:
           <input
             type="password"
             name="password"
             value={value.password}
             onChange={handleChange}
+            className="top-autoriz_input"
           />
         </label>
-        <button type="submit">Send me</button>
+        <button type="submit" className="top-autoriz-button">Send me</button>
       </form>
     </div>
   )
