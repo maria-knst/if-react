@@ -15,7 +15,7 @@ const TopFrame = ({ isAutoriz, setAutoriz }) => {
 
   const handleAccountClick = (e) => {
     e.preventDefault()
-    if (isAutoriz) {
+    if(isAutoriz){
       setDropdownVisible(!dropdownVisible)
     }
   }
@@ -35,8 +35,7 @@ const TopFrame = ({ isAutoriz, setAutoriz }) => {
           </a>
           <a
             href="src/components/TopFrame/TopFrame#"
-            className="top-option2 hovered"
-          >
+            className="top-option2 hovered">
             Attractions
           </a>
 
