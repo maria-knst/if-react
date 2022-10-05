@@ -27,19 +27,6 @@ const CalendarDay = ({ dayItem, selectedDates, click }) => {
     }
   }, [selectedDates])
 
-  // const [clicked, setClicked] = useState(false)
-  // const context_value = useContext(CalendarContext)
-
-  // const handleClick = (e) => {
-  //   if (isPast || isNotCurrentMonth) {
-  //     e.preventDefault()
-  //   } else {
-  //     setClicked(!clicked)
-  //     click(dayItem)
-  //   }
-  // }
-  //   ${isNotCurrentMonth && 'cal_not-current-month'}
-  // ${isToday && 'cal_today'}
 
   return (
     <div

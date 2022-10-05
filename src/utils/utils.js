@@ -49,10 +49,53 @@ const bubbleSort = (data) => {
   return data
 }
 
+
+const deepEqual = (obj1, obj2) => {
+
+  if(obj1 === obj2){
+    return true;
+  }
+  else{
+    if(Object.keys(obj1).length !== Object.keys(obj2).length){
+      return false;
+    }
+    for(const propName in obj1){
+
+      // eslint-disable-next-line no-prototype-builtins
+      if (! obj2.hasOwnProperty(propName)) {
+        return false;
+      }
+      if(obj1[propName].valueOf() !== obj2[propName].valueOf()){
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
 export const VISIBLE_DIV_SIZE = 4
 export const BASE_PATH = 'https://fe-student-api.herokuapp.com/api/hotels'
 export const CHILD_YEARS = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
 ]
 
-export { madeQueueFrom, decrement, increment, getMatchedElements, bubbleSort }
+export const autorizUsers = [
+  {
+    email: 'user1@gmail.com',
+    password: '11111',
+  },
+  {
+    email: 'user2@gmail.com',
+    password: '22222',
+  },
+  {
+    email: 'user3@gmail.com',
+    password: '33333',
+  },
+  {
+    email: 'user4@gmail.com',
+    password: '44444',
+  },
+]
+
+export { madeQueueFrom, decrement, increment, getMatchedElements, bubbleSort, deepEqual }

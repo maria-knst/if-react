@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import './AuthorizationBlock.scss'
 
+import { autorizUsers, deepEqual } from "../../utils/utils";
+
 const AuthorizationBlock = ({ setAutoriz }) => {
   const [value, setValue] = useState({
     email: '',
@@ -10,7 +12,12 @@ const AuthorizationBlock = ({ setAutoriz }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setAutoriz(true)
+    if(autorizUsers.find((item) => deepEqual(item, value))){
+      setAutoriz(true)
+    }else {
+      alert("User is not found :(")
+    }
+
   }
 
   const handleChange = (e) => {
