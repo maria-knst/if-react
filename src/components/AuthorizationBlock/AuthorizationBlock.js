@@ -1,30 +1,23 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import './AuthorizationBlock.scss'
 
-import { autorizUsers, deepEqual } from "../../utils/utils";
+import { autorizUsers, deepEqual } from '../../utils/utils'
 
 const AuthorizationBlock = ({ setAutoriz }) => {
-  const [value, setValue] = useState({
-    email: '',
-    password: '',
-  })
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(autorizUsers.find((item) => deepEqual(item, value))){
-      setAutoriz(true)
-    }else {
-      alert("User is not found :(")
+    const resObj = {
+      email: e.target.email.value,
+      password: e.target.password.value,
     }
-
-  }
-
-  const handleChange = (e) => {
-    setValue((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }))
+    if (autorizUsers.find((item) => deepEqual(item, resObj))) {
+      setAutoriz(true)
+    } else {
+      alert('User is not found :(')
+    }
   }
 
   return (
@@ -36,8 +29,6 @@ const AuthorizationBlock = ({ setAutoriz }) => {
           <input
             type="email"
             name="email"
-            value={value.email}
-            onChange={handleChange}
             className="top-autoriz_input"
             required
           />
@@ -47,8 +38,6 @@ const AuthorizationBlock = ({ setAutoriz }) => {
           <input
             type="password"
             name="password"
-            value={value.password}
-            onChange={handleChange}
             className="top-autoriz_input"
             minLength={4}
             required

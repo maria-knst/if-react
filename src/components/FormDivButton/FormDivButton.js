@@ -23,9 +23,9 @@ const FormDivButton = ({ type }) => {
   }
 
   const makeData = () => {
-    if (selectedDates.start === null && selectedDates.end === null) {
+    if (!selectedDates.start && !selectedDates.end) {
       return 'Mon 11 Sep — Sun 19 Sep'
-    } else if (selectedDates.start && selectedDates.end === null) {
+    } else if (selectedDates.start && !selectedDates.end) {
       return `${selectedDates.start.toDateString()} — Sun 19 Sep`
     } else if (selectedDates.start === null && selectedDates.end) {
       return `Mon 11 Sep — ${selectedDates.end.toDateString()}`

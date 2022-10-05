@@ -27,7 +27,6 @@ const CalendarDay = ({ dayItem, selectedDates, click }) => {
     }
   }, [selectedDates])
 
-
   return (
     <div
       className={`cal_day cal_day-num cal_day-num-d

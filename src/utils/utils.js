@@ -49,28 +49,24 @@ const bubbleSort = (data) => {
   return data
 }
 
-
 const deepEqual = (obj1, obj2) => {
-
-  if(obj1 === obj2){
-    return true;
-  }
-  else{
-    if(Object.keys(obj1).length !== Object.keys(obj2).length){
-      return false;
+  if (obj1 === obj2) {
+    return true
+  } else {
+    if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+      return false
     }
-    for(const propName in obj1){
-
+    for (const propName in obj1) {
       // eslint-disable-next-line no-prototype-builtins
-      if (! obj2.hasOwnProperty(propName)) {
-        return false;
+      if (!obj2.hasOwnProperty(propName)) {
+        return false
       }
-      if(obj1[propName].valueOf() !== obj2[propName].valueOf()){
-        return false;
+      if (obj1[propName].valueOf() !== obj2[propName].valueOf()) {
+        return false
       }
     }
   }
-  return true;
+  return true
 }
 
 export const VISIBLE_DIV_SIZE = 4
@@ -98,4 +94,11 @@ export const autorizUsers = [
   },
 ]
 
-export { madeQueueFrom, decrement, increment, getMatchedElements, bubbleSort, deepEqual }
+export {
+  madeQueueFrom,
+  decrement,
+  increment,
+  getMatchedElements,
+  bubbleSort,
+  deepEqual,
+}
