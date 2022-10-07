@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
 import './HotelBlock.scss'
-import {useLocation, useParams} from 'react-router-dom'
-import { BASE_PATH} from '../../utils/utils'
+import { useLocation, useParams } from 'react-router-dom'
+import { BASE_PATH } from '../../utils/utils'
 import Comment from '../Comment/Comment'
 import Arrow from '../Arrow/Arrow'
 
@@ -66,12 +66,12 @@ const HotelBlock = () => {
             hotelDestination={`${hotelElement.city}, ${hotelElement.country}`}
           />
           <Comment
-              hotelName={hotelElement.name}
-              hotelDestination={`${hotelElement.city}, ${hotelElement.country}`}
+            hotelName={hotelElement.name}
+            hotelDestination={`${hotelElement.city}, ${hotelElement.country}`}
           />
           <Comment
-              hotelName={hotelElement.name}
-              hotelDestination={`${hotelElement.city}, ${hotelElement.country}`}
+            hotelName={hotelElement.name}
+            hotelDestination={`${hotelElement.city}, ${hotelElement.country}`}
           />
           <Arrow id="places__arrow-next" visible={true} />
         </div>

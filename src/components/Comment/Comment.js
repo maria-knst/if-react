@@ -1,7 +1,7 @@
 import React from 'react'
 
 import flag from '../../images/Flags/USA.png'
-import userIcon from '../../images/svg/UserIcon.svg';
+import userIcon from '../../images/svg/UserIcon.svg'
 
 import './Comment.scss'
 
@@ -21,7 +21,7 @@ const Comment = ({ hotelDestination, hotelName }) => {
       </div>
 
       <div className="reviews__user">
-        <img className="reviews-account" src={userIcon} alt="User icon"/>
+        <img className="reviews-account" src={userIcon} alt="User icon" />
         <div className="reviews__user-info">
           <h6 className="user-name">Adam Smith</h6>
           <div className="user-location">

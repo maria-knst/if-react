@@ -11,10 +11,13 @@ import React from 'react'
 import { BASE_PATH } from '../../utils/utils'
 import HotelPage from '../HotelPage/HotelPage'
 import Footer from '../Footer/Footer'
+import AuthorizationBlock from '../AuthorizationBlock/AuthorizationBlock'
 
 function App() {
   const [availableHotelsArray, setAvailableHotelsArray] = useState([])
   const [hotelsIsVisible, setHotelsVisible] = useState(false)
+
+  const [autoriz, setAutoriz] = useState(false)
 
   const madeHotelsArray = async (search) => {
     const request = await fetch(BASE_PATH + `?search=${search}`)
@@ -36,14 +39,22 @@ function App() {
           path="/"
           element={
             <div className="App">
-              <TopSection>
-                <TopForm createRequest={madeHotelsArray} />
-              </TopSection>
-              {hotelsIsVisible && (
-                <AvailableHotelsSection array={availableHotelsArray} />
+              {autoriz ? (
+                <>
+                  <TopSection isAutoriz={autoriz} setAutoriz={setAutoriz}>
+                    <TopForm createRequest={madeHotelsArray} />
+                  </TopSection>
+                  {hotelsIsVisible && (
+                    <AvailableHotelsSection array={availableHotelsArray} />
+                  )}
+                  <HomesSection />
+                  <Footer />
+                </>
+              ) : (
+                <TopSection isAutoriz={autoriz}>
+                  <AuthorizationBlock setAutoriz={setAutoriz} />
+                </TopSection>
               )}
-              <HomesSection />
-              <Footer />
             </div>
           }
         />

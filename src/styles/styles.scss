@@ -15,6 +15,14 @@ $top_border-radius: 8px;
 
 $main_font-family: 'Roboto', sans-serif;
 
+@mixin top_button {
+  border: none;
+  border-radius: $top_border-radius;
+  background: $color_light-blue;
+  color: $color_white;
+  font-size: 24px;
+}
+
 @mixin _1020 {
   @media screen and (max-width: 1020px) {
     @content;
