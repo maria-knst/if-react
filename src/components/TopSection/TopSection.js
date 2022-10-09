@@ -6,19 +6,18 @@ import TopApps from '../TopApps/TopApps'
 
 import './TopSection.css'
 import backgroundImage from '../../images/Top-section-castelmezzano.jpg'
-import {useSelector} from "react-redux";
-import {isAuthorizeSelector} from "../../ducks/authorization/authoriz_selectors";
+import { useSelector } from 'react-redux'
+import { isAuthorizeSelector } from '../../ducks/authorization/authoriz_selectors'
 
 const TopSection = ({ children }) => {
-
-  const isAuthorize = useSelector(isAuthorizeSelector);
+  const isAuthorize = useSelector(isAuthorizeSelector)
 
   return (
     <header
       className="top-section"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <TopFrame/>
+      <TopFrame />
       <div className="container col-12">
         {isAuthorize ? (
           <>

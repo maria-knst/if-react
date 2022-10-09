@@ -1,1 +1,1 @@
-export const isAuthorizeSelector = (state) => state.isAuthorize;
+export const isAuthorizeSelector = (state) => state.authorization.isAuthorize
