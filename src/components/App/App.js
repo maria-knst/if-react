@@ -12,12 +12,14 @@ import { BASE_PATH } from '../../utils/utils'
 import HotelPage from '../HotelPage/HotelPage'
 import Footer from '../Footer/Footer'
 import AuthorizationBlock from '../AuthorizationBlock/AuthorizationBlock'
+import {useSelector} from "react-redux";
+import {isAuthorizeSelector} from "../../ducks/authorization/authoriz_selectors";
 
 function App() {
   const [availableHotelsArray, setAvailableHotelsArray] = useState([])
   const [hotelsIsVisible, setHotelsVisible] = useState(false)
 
-  const [autoriz, setAutoriz] = useState(false)
+  const isAuthorize = useSelector(isAuthorizeSelector);
 
   const madeHotelsArray = async (search) => {
     const request = await fetch(BASE_PATH + `?search=${search}`)
@@ -39,9 +41,9 @@ function App() {
           path="/"
           element={
             <div className="App">
-              {autoriz ? (
+              {isAuthorize ? (
                 <>
-                  <TopSection isAutoriz={autoriz} setAutoriz={setAutoriz}>
+                  <TopSection>
                     <TopForm createRequest={madeHotelsArray} />
                   </TopSection>
                   {hotelsIsVisible && (
@@ -51,8 +53,8 @@ function App() {
                   <Footer />
                 </>
               ) : (
-                <TopSection isAutoriz={autoriz}>
-                  <AuthorizationBlock setAutoriz={setAutoriz} />
+                <TopSection>
+                  <AuthorizationBlock />
                 </TopSection>
               )}
             </div>

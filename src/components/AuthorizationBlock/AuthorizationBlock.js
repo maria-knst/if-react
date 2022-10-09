@@ -3,8 +3,12 @@ import React from 'react'
 import './AuthorizationBlock.scss'
 
 import { autorizUsers, deepEqual } from '../../utils/utils'
+import {useDispatch} from "react-redux";
+import { ACTION_SET_AUTHORIZE } from "../../ducks/authorization/authoriz_actions";
 
-const AuthorizationBlock = ({ setAutoriz }) => {
+const AuthorizationBlock = () => {
+
+  const dispatch = useDispatch();
 
 
   const handleSubmit = (e) => {
@@ -14,7 +18,7 @@ const AuthorizationBlock = ({ setAutoriz }) => {
       password: e.target.password.value,
     }
     if (autorizUsers.find((item) => deepEqual(item, resObj))) {
-      setAutoriz(true)
+      dispatch(ACTION_SET_AUTHORIZE(resObj));
     } else {
       alert('User is not found :(')
     }
