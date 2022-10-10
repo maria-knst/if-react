@@ -1,0 +1,18 @@
+@import '../../styles/styles.scss';
+
+.advantages {
+    color: $color_dark-grey;
+    order: 3;
+    font-size: 24px;
+    padding: 120px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+@include _600 {
+    .advantages {
+        padding: 25px 0 40px;
+    }
+    .highlight {
+        display: none;
+    }
+}

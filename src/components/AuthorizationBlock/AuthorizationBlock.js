@@ -4,7 +4,7 @@ import './AuthorizationBlock.scss'
 
 import { autorizUsers, deepEqual } from '../../utils/utils'
 import { useDispatch } from 'react-redux'
-import { ACTION_SET_AUTHORIZE } from '../../ducks/authorization/authoriz_actions'
+import { ACTION_SET_AUTHORIZE } from '../../redux/ducks/authorization/authoriz_actions'
 
 const AuthorizationBlock = () => {
   const dispatch = useDispatch()

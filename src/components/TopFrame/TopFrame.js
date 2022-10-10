@@ -4,9 +4,9 @@ import './TopFrame.scss'
 import Sprite from '../../images/svg/Sprite.svg'
 import Dropdown from '../Dropdown/Dropdown'
 import { useDispatch, useSelector } from 'react-redux'
-import { ACTION_SET_UNAUTHORIZE } from '../../ducks/authorization/authoriz_actions'
-import { isAuthorizeSelector } from '../../ducks/authorization/authoriz_selectors'
-import {Link} from "react-router-dom";
+import { ACTION_SET_UNAUTHORIZE } from '../../redux/ducks/authorization/authoriz_actions'
+import { isAuthorizeSelector } from '../../redux/ducks/authorization/authoriz_selectors'
+import { Link } from 'react-router-dom'
 
 const TopFrame = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false)
@@ -30,7 +30,7 @@ const TopFrame = () => {
   return (
     <div className="container col-12">
       <div className="top-frame">
-        <Link to='/'>
+        <Link to="/">
           <svg className="top-logo">
             <use href={`${Sprite}#logo_vector`}></use>
           </svg>

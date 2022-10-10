@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 
 import './TopForm.css'
 import FormDivButton from '../FormDivButton/FormDivButton'
-import {BASE_PATH} from "../../utils/utils";
-import {useDispatch} from "react-redux";
-import {ACTION_SEARCH_HOTELS} from "../../ducks/search/search_actions";
+import { BASE_PATH } from '../../utils/utils'
+import { useDispatch } from 'react-redux'
+import { ACTION_SEARCH_HOTELS } from '../../redux/ducks/search/search_actions'
 
 const TopForm = () => {
   const [destination, setDestination] = useState('New York')
@@ -15,7 +15,7 @@ const TopForm = () => {
     const result = await request.json()
 
     if (result.length) {
-      dispatch(ACTION_SEARCH_HOTELS(result));
+      dispatch(ACTION_SEARCH_HOTELS(result))
     } else {
       alert('Nothing is find')
     }
