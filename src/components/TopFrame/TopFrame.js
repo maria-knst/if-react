@@ -3,19 +3,26 @@ import './TopFrame.scss'
 
 import Sprite from '../../images/svg/Sprite.svg'
 import Dropdown from '../Dropdown/Dropdown'
+import { useDispatch, useSelector } from 'react-redux'
+import { ACTION_SET_UNAUTHORIZE } from '../../redux/ducks/authorization/authoriz_actions'
+import { isAuthorizeSelector } from '../../redux/ducks/authorization/authoriz_selectors'
+import { Link } from 'react-router-dom'
 
-const TopFrame = ({ isAutoriz, setAutoriz }) => {
+const TopFrame = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false)
+
+  const dispatch = useDispatch()
+  const isAuthorize = useSelector(isAuthorizeSelector)
 
   const handleClick = (e) => {
     e.preventDefault()
     setDropdownVisible(false)
-    setAutoriz(!isAutoriz)
+    dispatch(ACTION_SET_UNAUTHORIZE())
   }
 
   const handleAccountClick = (e) => {
     e.preventDefault()
-    if (isAutoriz) {
+    if (isAuthorize) {
       setDropdownVisible(!dropdownVisible)
     }
   }
@@ -23,9 +30,11 @@ const TopFrame = ({ isAutoriz, setAutoriz }) => {
   return (
     <div className="container col-12">
       <div className="top-frame">
-        <svg className="top-logo">
-          <use href={`${Sprite}#logo_vector`}></use>
-        </svg>
+        <Link to="/">
+          <svg className="top-logo">
+            <use href={`${Sprite}#logo_vector`}></use>
+          </svg>
+        </Link>
         <div className="top-group col-4">
           <a
             href="src/components/TopFrame/TopFrame#"
@@ -46,7 +55,7 @@ const TopFrame = ({ isAutoriz, setAutoriz }) => {
           <svg className="top-account hovered" onClick={handleAccountClick}>
             <use
               href={`${Sprite}#AccountCircle`}
-              className={`${isAutoriz && 'top-account_autoriz'}`}
+              className={`${isAuthorize && 'top-account_autoriz'}`}
             ></use>
           </svg>
           <Dropdown isVisible={dropdownVisible} handleClick={handleClick} />

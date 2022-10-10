@@ -1,0 +1,18 @@
+@import '../../styles/styles.scss';
+
+.flex-container {
+  display: flex;
+  gap: 10px;
+  line-height: 1;
+  margin: 80px auto 0;
+}
+
+@include _600 {
+
+  .flex-container {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    margin-top: 35px;
+  }
+}

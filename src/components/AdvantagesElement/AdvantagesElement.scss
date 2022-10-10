@@ -1,0 +1,39 @@
+@import '../../styles/styles.scss';
+
+.element:hover {
+  background: $color_light-grey;
+}
+
+.text {
+  text-align: center;
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: auto auto 50px;
+}
+
+@include _600 {
+  .element {
+    width: 100%;
+  }
+}
+
+@include _362 {
+  .element {
+    .text {
+      font-size: 15px;
+    }
+    .image {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 15px;
+    }
+  }
+  .title-text {
+    font-size: 28px;
+    padding: 0;
+  }
+}
