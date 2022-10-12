@@ -11,10 +11,9 @@ import HotelPage from '../HotelPage/HotelPage'
 import Footer from '../Footer/Footer'
 import AuthorizationBlock from '../AuthorizationBlock/AuthorizationBlock'
 
-
 import { isAuthorizeSelector } from '../../redux/ducks/authorization/authoriz_selectors'
-import { availableHotelsSelector } from "../../redux/ducks/search/search_selectors";
-import AdvantagesSection from "../AdvantagesSection/AdvantagesSection";
+import { availableHotelsSelector } from '../../redux/ducks/search/search_selectors'
+import AdvantagesSection from '../AdvantagesSection/AdvantagesSection'
 
 function App() {
   const isAuthorize = useSelector(isAuthorizeSelector)
@@ -35,7 +34,7 @@ function App() {
                   {!!availableHotelsArray.length && (
                     <AvailableHotelsSection array={availableHotelsArray} />
                   )}
-                    <AdvantagesSection />
+                  <AdvantagesSection />
                   <HomesSection />
                   <Footer />
                 </>
