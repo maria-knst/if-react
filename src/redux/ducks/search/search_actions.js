@@ -1,8 +1,3 @@
-export const SEARCH_HOTELS = 'SEARCH_HOTELS'
+import { createAction } from 'redux-actions'
 
-export const ACTION_SEARCH_HOTELS = (payload) => {
-  return {
-    type: SEARCH_HOTELS,
-    payload,
-  }
-}
+export const searchHotels = createAction('SEARCH_HOTELS');

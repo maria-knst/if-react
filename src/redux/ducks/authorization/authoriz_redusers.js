@@ -1,24 +1,19 @@
-import { SET_AUTHORIZE, SET_UNAUTHORIZE } from './authoriz_actions'
+import { setAuthorize, setUnauthorize } from './authoriz_actions'
+import { handleActions } from 'redux-actions'
 
 export const initialState = {
   isAuthorize: false,
 }
 
-export const reduser = (state = initialState, action) => {
-  switch (action.type) {
-    case SET_AUTHORIZE:
-      return {
-        ...state,
-        isAuthorize: true,
-      }
+const handlers = {
+  [setAuthorize]: (state, action) => ({
+    ...state,
+    isAuthorize: true,
+  }),
+  [setUnauthorize]: (state) => ({
+    ...state,
+    isAuthorize: false,
+  }),
+};
 
-    case SET_UNAUTHORIZE:
-      return {
-        ...state,
-        isAuthorize: false,
-      }
-
-    default:
-      return state
-  }
-}
+export default handleActions(handlers, initialState)

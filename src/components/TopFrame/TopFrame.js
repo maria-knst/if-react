@@ -4,7 +4,7 @@ import './TopFrame.scss'
 import Sprite from '../../images/svg/Sprite.svg'
 import Dropdown from '../Dropdown/Dropdown'
 import { useDispatch, useSelector } from 'react-redux'
-import { ACTION_SET_UNAUTHORIZE } from '../../redux/ducks/authorization/authoriz_actions'
+import { setUnauthorize } from '../../redux/ducks/authorization/authoriz_actions'
 import { isAuthorizeSelector } from '../../redux/ducks/authorization/authoriz_selectors'
 import { Link } from 'react-router-dom'
 
@@ -17,7 +17,7 @@ const TopFrame = () => {
   const handleClick = (e) => {
     e.preventDefault()
     setDropdownVisible(false)
-    dispatch(ACTION_SET_UNAUTHORIZE())
+    dispatch(setUnauthorize())
   }
 
   const handleAccountClick = (e) => {
