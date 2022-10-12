@@ -14,6 +14,6 @@ const handlers = {
     ...state,
     isAuthorize: false,
   }),
-};
+}
 
 export default handleActions(handlers, initialState)

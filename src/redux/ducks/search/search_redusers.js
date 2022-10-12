@@ -12,4 +12,4 @@ const handlers = {
   }),
 }
 
-export default handleActions(handlers, initialState);
+export default handleActions(handlers, initialState)
