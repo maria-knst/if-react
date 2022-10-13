@@ -1,15 +1,4 @@
-export const SET_AUTHORIZE = 'SET_AUTHORIZE'
-export const SET_UNAUTHORIZE = 'SET_UNAUTHORIZE'
+import { createAction } from 'redux-actions'
 
-export const ACTION_SET_AUTHORIZE = (payload) => {
-  return {
-    type: SET_AUTHORIZE,
-    payload: payload,
-  }
-}
-
-export const ACTION_SET_UNAUTHORIZE = () => {
-  return {
-    type: SET_UNAUTHORIZE,
-  }
-}
+export const setAuthorize = createAction('SET_AUTHORIZE')
+export const setUnauthorize = createAction('SET_UNAUTHORIZE')

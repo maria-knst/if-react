@@ -1,17 +1,15 @@
-import { SEARCH_HOTELS } from './search_actions'
+import { searchHotels } from './search_actions'
+import { handleActions } from 'redux-actions'
 
 export const initialState = {
   data: [],
 }
 
-export const reduser = (state = initialState, action) => {
-  switch (action.type) {
-    case SEARCH_HOTELS:
-      return {
-        ...state,
-        data: action.payload,
-      }
-    default:
-      return state
-  }
+const handlers = {
+  [searchHotels]: (state, action) => ({
+    ...state,
+    data: action.payload,
+  }),
 }
+
+export default handleActions(handlers, initialState)
