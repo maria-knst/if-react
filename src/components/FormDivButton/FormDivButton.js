@@ -31,34 +31,34 @@ const FormDivButton = ({ type }) => {
       return `Mon 11 Sep — ${selectedDates.end.toDateString()}`
     } else {
       return (
-          selectedDates.start.toDateString() +
-          '—' +
-          selectedDates.end.toDateString()
+        selectedDates.start.toDateString() +
+        '—' +
+        selectedDates.end.toDateString()
       )
     }
   }
 
   return (
-      <div className={`${type} top__div-but`}>
-        <button className="inner-but" onClick={handleClick}>
-          {type === 'people'
-              ? Object.entries(peopleFilterArguments)
-                  .map((el) => {
-                    return `${el[0]} ${el[1]}`
-                  })
-                  .join(' — ')
-              : makeData()}
-        </button>
-        {visible &&
-            (type === 'date' ? (
-                <Calendar
-                    selectedDates={selectedDates}
-                    setSelectedDates={setSelectedDates}
-                />
-            ) : (
-                <PeopleFilter setPeopleFilterArguments={setPeopleFilterArguments} />
-            ))}
-      </div>
+    <div className={`${type} top__div-but`}>
+      <button className="inner-but" onClick={handleClick}>
+        {type === 'people'
+          ? Object.entries(peopleFilterArguments)
+              .map((el) => {
+                return `${el[0]} ${el[1]}`
+              })
+              .join(' — ')
+          : makeData()}
+      </button>
+      {visible &&
+        (type === 'date' ? (
+          <Calendar
+            selectedDates={selectedDates}
+            setSelectedDates={setSelectedDates}
+          />
+        ) : (
+          <PeopleFilter setPeopleFilterArguments={setPeopleFilterArguments} />
+        ))}
+    </div>
   )
 }
 
