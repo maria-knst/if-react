@@ -4,6 +4,8 @@ import PeopleFilterComponent from '../PeopleFilterComponent/PeopleFilterComponen
 import './PeopleFilter.scss'
 
 import { CHILD_YEARS } from '../../utils/utils'
+import { useDispatch } from 'react-redux'
+import { setFull } from '../../redux/ducks/travelers/travelers_actions'
 
 let totalAmount = {
   Adults: 2,
@@ -13,6 +15,7 @@ let totalAmount = {
 
 const PeopleFilter = ({ setPeopleFilterArguments }) => {
   const [childAgeCount, setChildAgeCount] = useState(0)
+  const dispatch = useDispatch()
 
   const getChildAgeElements = (length) => {
     const content = []
@@ -30,6 +33,7 @@ const PeopleFilter = ({ setPeopleFilterArguments }) => {
 
   const getTotalAmount = (object) => {
     totalAmount = { ...totalAmount, ...object }
+    dispatch(setFull(totalAmount))
     setPeopleFilterArguments(totalAmount)
   }
 
