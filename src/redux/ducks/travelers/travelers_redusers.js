@@ -8,7 +8,7 @@ import { handleActions } from 'redux-actions'
 
 export const initialState = {
   Adults: 2,
-  Children: 0,
+  ChildrenAge: 0,
   Rooms: 1,
 }
 

@@ -13,8 +13,8 @@ const devToolsExtension =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 const enhancers = [devToolsExtension]
 
-const sagaMiddleware = createSagaMiddleware();
-const middlewares = [sagaMiddleware, logger];
+const sagaMiddleware = createSagaMiddleware()
+const middlewares = [sagaMiddleware, logger]
 
 const composedEnhancers = compose(applyMiddleware(...middlewares), ...enhancers)
 

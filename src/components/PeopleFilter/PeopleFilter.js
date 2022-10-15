@@ -17,11 +17,16 @@ const PeopleFilter = ({ setPeopleFilterArguments }) => {
   const [childAgeCount, setChildAgeCount] = useState(0)
   const dispatch = useDispatch()
 
+    const handleChange = (e) => {
+      e.preventDefault()
+        console.log(e.target.value)
+    }
+
   const getChildAgeElements = (length) => {
     const content = []
     for (let i = 0; i < length; i++) {
       content.push(
-        <select id={`child${i}`} className="top__child-years" key={i}>
+        <select id={`child${i}`} className="top__child-years" key={i} onChange={handleChange}>
           {CHILD_YEARS.map((item) => (
             <option value={item} key={item}>{`${item} years`}</option>
           ))}

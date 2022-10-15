@@ -2,20 +2,26 @@ import React, { useState } from 'react'
 
 import './TopForm.css'
 import FormDivButton from '../FormDivButton/FormDivButton'
-import { useDispatch } from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import { searchDataRequested } from '../../redux/ducks/search/search_actions'
+import {adultsSelector, childrenSelector, roomsSelector} from "../../redux/ducks/travelers/travelers_selectors";
 
 const TopForm = () => {
   const [destination, setDestination] = useState('New York')
   const dispatch = useDispatch()
 
-  const createRequest = (search) => {
-    dispatch(searchDataRequested(search))
-   }
+  const adultsS = useSelector(adultsSelector)
+  const childrenS = useSelector(childrenSelector)
+  const roomsS = useSelector(roomsSelector)
 
   const handleSearch = (e) => {
     e.preventDefault()
-    createRequest(destination)
+    dispatch(searchDataRequested({
+      searchingString: destination,
+      adults: adultsS,
+      childrenAge: [childrenS],
+      rooms: roomsS,
+    }))
     setDestination('')
   }
 
