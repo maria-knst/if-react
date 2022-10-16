@@ -5,7 +5,7 @@ import './PeopleFilter.scss'
 
 import { CHILD_YEARS } from '../../utils/utils'
 import { useDispatch } from 'react-redux'
-import { setFull } from '../../redux/ducks/travelers/travelers_actions'
+import {setChildrenAge, setFull} from '../../redux/ducks/travelers/travelers_actions'
 
 let totalAmount = {
   Adults: 2,
@@ -17,16 +17,28 @@ const PeopleFilter = ({ setPeopleFilterArguments }) => {
   const [childAgeCount, setChildAgeCount] = useState(0)
   const dispatch = useDispatch()
 
-    const handleChange = (e) => {
-      e.preventDefault()
-        console.log(e.target.value)
+  const [optionsValues, setOptionsValues] = useState({})
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    const optVal = {
+      ...optionsValues,
+      [e.currentTarget.id]: e.target.value,
     }
+    setOptionsValues(optVal);
+    dispatch(setChildrenAge(Object.values(optVal).slice(0,childAgeCount)))
+  }
 
   const getChildAgeElements = (length) => {
     const content = []
     for (let i = 0; i < length; i++) {
       content.push(
-        <select id={`child${i}`} className="top__child-years" key={i} onChange={handleChange}>
+        <select
+          id={`child${i}`}
+          className="top__child-years"
+          key={i}
+          onChange={handleChange}
+        >
           {CHILD_YEARS.map((item) => (
             <option value={item} key={item}>{`${item} years`}</option>
           ))}

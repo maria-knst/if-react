@@ -4,13 +4,18 @@ import {
   searchDataSucceed,
   searchDataFailed,
 } from './search_actions'
-import { BASE_PATH } from '../../../utils/utils'
+import { generateURL } from '../../../utils/utils'
 
 export function* getSearchingSaga(action) {
   try {
-    console.log(action.payload)
-    const path = BASE_PATH +
-        `?search=${action.payload.searchingString}&adults=${action.payload.adults}&children=${action.payload.childrenAge}&rooms=${action.payload.rooms}`;
+    const path = generateURL(
+      action.payload.searchingString,
+      action.payload.startDate,
+      action.payload.endDate,
+      action.payload.adults,
+      action.payload.childrenAge,
+      action.payload.rooms,
+    )
     console.log(path)
     const response = yield fetch(path)
     const data = yield response.json()

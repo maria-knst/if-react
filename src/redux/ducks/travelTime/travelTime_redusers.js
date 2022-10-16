@@ -2,8 +2,8 @@ import { setStartData, setEndData } from './travelTime_actions'
 import { handleActions } from 'redux-actions'
 
 export const initialState = {
-  start: null,
-  end: null,
+  start: new Date(),
+  end: new Date(),
 }
 
 const handlers = {

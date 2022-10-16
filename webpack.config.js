@@ -10,6 +10,7 @@ module.exports = {
     chunkFilename: '[id].js',
     publicPath: '/',
   },
+  devtool: "eval-source-map",
   devServer: {
     historyApiFallback: true,
   },

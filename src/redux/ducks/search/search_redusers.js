@@ -26,6 +26,7 @@ const handlers = {
   [searchDataSucceed]: (state, action) => ({
     ...state,
     loading: false,
+    error: null,
     data: action.payload,
   }),
   [searchDataFailed]: (state, action) => ({

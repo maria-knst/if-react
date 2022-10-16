@@ -69,6 +69,13 @@ const deepEqual = (obj1, obj2) => {
   return true
 }
 
+const generateURL = (searchingString, start, end, adults, childrenAge, rooms ) => {
+  return (
+    BASE_PATH +
+    `?search=${searchingString}&dateFrom=${start.getTime()}&dateTo=${end.getTime()}&adults=${adults}&children=${childrenAge}&rooms=${rooms}`
+  )
+}
+
 export const VISIBLE_DIV_SIZE = 4
 export const BASE_PATH = 'https://fe-student-api.herokuapp.com/api/hotels'
 export const CHILD_YEARS = [
@@ -101,4 +108,5 @@ export {
   getMatchedElements,
   bubbleSort,
   deepEqual,
+  generateURL,
 }

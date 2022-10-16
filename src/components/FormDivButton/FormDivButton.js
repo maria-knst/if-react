@@ -5,6 +5,7 @@ import PeopleFilter from '../PeopleFilter/PeopleFilter'
 import './FormDivButton.scss'
 
 const FormDivButton = ({ type }) => {
+
   const [visible, setVisible] = useState(false)
   const [peopleFilterArguments, setPeopleFilterArguments] = useState({
     Adults: 2,
