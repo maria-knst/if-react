@@ -4,8 +4,12 @@ import PeopleFilterComponent from '../PeopleFilterComponent/PeopleFilterComponen
 import './PeopleFilter.scss'
 
 import { CHILD_YEARS } from '../../utils/utils'
-import { useDispatch } from 'react-redux'
-import {setChildrenAge, setFull} from '../../redux/ducks/travelers/travelers_actions'
+import {useDispatch, useSelector} from 'react-redux'
+import {
+  setChildrenAge,
+  setFull,
+} from '../../redux/ducks/travelers/travelers_actions'
+import {fullInfoSelector} from "../../redux/ducks/travelers/travelers_selectors";
 
 let totalAmount = {
   Adults: 2,
@@ -16,17 +20,15 @@ let totalAmount = {
 const PeopleFilter = ({ setPeopleFilterArguments }) => {
   const [childAgeCount, setChildAgeCount] = useState(0)
   const dispatch = useDispatch()
-
-  const [optionsValues, setOptionsValues] = useState({})
+  const fullInfoS = useSelector(fullInfoSelector)
 
   const handleChange = (e) => {
     e.preventDefault()
     const optVal = {
-      ...optionsValues,
+      ...fullInfoS,
       [e.currentTarget.id]: e.target.value,
     }
-    setOptionsValues(optVal);
-    dispatch(setChildrenAge(Object.values(optVal).slice(0,childAgeCount)))
+    dispatch(setChildrenAge(Object.values(optVal).slice(0, childAgeCount)))
   }
 
   const getChildAgeElements = (length) => {

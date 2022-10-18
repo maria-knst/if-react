@@ -3,15 +3,18 @@ import Calendar from '../Calendar/Calendar'
 import PeopleFilter from '../PeopleFilter/PeopleFilter'
 
 import './FormDivButton.scss'
+import {useSelector} from "react-redux";
+import {fullInfoSelector} from "../../redux/ducks/travelers/travelers_selectors";
 
 const FormDivButton = ({ type }) => {
-
   const [visible, setVisible] = useState(false)
   const [peopleFilterArguments, setPeopleFilterArguments] = useState({
     Adults: 2,
     Children: 0,
     Rooms: 1,
   })
+
+  const fullInfoS = useSelector(fullInfoSelector)
 
   const [selectedDates, setSelectedDates] = useState({
     start: null,

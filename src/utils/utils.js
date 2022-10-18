@@ -69,7 +69,14 @@ const deepEqual = (obj1, obj2) => {
   return true
 }
 
-const generateURL = (searchingString, start, end, adults, childrenAge, rooms ) => {
+const generateURL = (
+  searchingString,
+  start,
+  end,
+  adults,
+  childrenAge,
+  rooms,
+) => {
   return (
     BASE_PATH +
     `?search=${searchingString}&dateFrom=${start.getTime()}&dateTo=${end.getTime()}&adults=${adults}&children=${childrenAge}&rooms=${rooms}`

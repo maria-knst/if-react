@@ -9,7 +9,10 @@ import {
   childrenSelector,
   roomsSelector,
 } from '../../redux/ducks/travelers/travelers_selectors'
-import {endDateSelector, startDateSelector} from '../../redux/ducks/travelTime/travelTime_selectors'
+import {
+  endDateSelector,
+  startDateSelector,
+} from '../../redux/ducks/travelTime/travelTime_selectors'
 
 const TopForm = () => {
   const [destination, setDestination] = useState('New York')
@@ -18,8 +21,8 @@ const TopForm = () => {
   const adultsS = useSelector(adultsSelector)
   const childrenS = useSelector(childrenSelector)
   const roomsS = useSelector(roomsSelector)
-  // const startDate = useSelector(startDateSelector)
-  // const endDate = useSelector(endDateSelector)
+  const startDateS = useSelector(startDateSelector)
+  const endDateS = useSelector(endDateSelector)
 
   const handleSearch = (e) => {
     e.preventDefault()
@@ -31,6 +34,8 @@ const TopForm = () => {
         rooms: roomsS,
         startDate: new Date(),
         endDate: new Date(),
+        //   startDate: startDateS,
+        //   endDate: endDateS,
       }),
     )
     setDestination('')
