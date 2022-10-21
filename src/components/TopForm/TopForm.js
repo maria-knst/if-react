@@ -5,37 +5,34 @@ import FormDivButton from '../FormDivButton/FormDivButton'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchDataRequested } from '../../redux/ducks/search/search_actions'
 import {
-  adultsSelector,
   childrenSelector,
-  roomsSelector,
 } from '../../redux/ducks/travelers/travelers_selectors'
-import {
-  endDateSelector,
-  startDateSelector,
-} from '../../redux/ducks/travelTime/travelTime_selectors'
 
 const TopForm = () => {
   const [destination, setDestination] = useState('New York')
+  const [date, setDate] = useState({
+    start: new Date(),
+    end: new Date(),
+  })
+  const [peopleAmount, setPeopleAmount] = useState({
+      Adults: 2,
+      Children: 0,
+      Rooms: 1,
+  })
   const dispatch = useDispatch()
 
-  const adultsS = useSelector(adultsSelector)
   const childrenS = useSelector(childrenSelector)
-  const roomsS = useSelector(roomsSelector)
-  const startDateS = useSelector(startDateSelector)
-  const endDateS = useSelector(endDateSelector)
 
   const handleSearch = (e) => {
     e.preventDefault()
+      console.log(date)
     dispatch(
       searchDataRequested({
         searchingString: destination,
-        adults: adultsS,
+        adults: peopleAmount.Adults,
         childrenAge: [childrenS],
-        rooms: roomsS,
-        startDate: new Date(),
-        endDate: new Date(),
-        //   startDate: startDateS,
-        //   endDate: endDateS,
+        rooms: peopleAmount.Rooms,
+        ...date,
       }),
     )
     setDestination('')
@@ -58,8 +55,8 @@ const TopForm = () => {
           onChange={(event) => setDestination(event.target.value)}
           required
         />
-        <FormDivButton type="date" />
-        <FormDivButton type="people" />
+        <FormDivButton type="date" setDate={setDate} />
+        <FormDivButton type="people" setPeopleAmount={setPeopleAmount} />
 
         <button
           onClick={handleSearch}

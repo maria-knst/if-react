@@ -10,10 +10,6 @@ import {
 import './CalendarMonth.scss'
 import CalendarDay from '../CalendarDay/CalendarDay'
 import { useDispatch } from 'react-redux'
-import {
-  setEndData,
-  setStartData,
-} from '../../redux/ducks/travelTime/travelTime_actions'
 
 const CalendarMonth = ({ id_, selectedDates, setSelectedDates }) => {
   const viewMonth = id_ === 'current' ? calendarMonth : calendarNextMonth
@@ -28,20 +24,14 @@ const CalendarMonth = ({ id_, selectedDates, setSelectedDates }) => {
             prevState.start.getDay() > clickedDay.getDay()) ||
           prevState.start.getMonth() > clickedDay.getMonth()
         ) {
-          dispatch(setEndData(prevState.start))
-          dispatch(setStartData(clickedDay))
           return { end: prevState.start, start: clickedDay }
         } else {
-          dispatch(setEndData(clickedDay))
           return { ...prevState, end: clickedDay }
         }
       } else {
         if (prevState.start && prevState.end) {
-          dispatch(setStartData(clickedDay))
-          dispatch(setEndData(null))
           return { start: clickedDay, end: null }
         } else {
-          dispatch(setStartData(clickedDay))
           return { ...prevState, start: clickedDay }
         }
       }

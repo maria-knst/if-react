@@ -10,13 +10,12 @@ export function* getSearchingSaga(action) {
   try {
     const path = generateURL(
       action.payload.searchingString,
-      action.payload.startDate,
-      action.payload.endDate,
+      action.payload.start,
+      action.payload.end,
       action.payload.adults,
       action.payload.childrenAge,
       action.payload.rooms,
     )
-    console.log(path)
     const response = yield fetch(path)
     const data = yield response.json()
 

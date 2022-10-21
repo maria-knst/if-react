@@ -4,12 +4,12 @@ import PeopleFilterComponent from '../PeopleFilterComponent/PeopleFilterComponen
 import './PeopleFilter.scss'
 
 import { CHILD_YEARS } from '../../utils/utils'
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   setChildrenAge,
   setFull,
 } from '../../redux/ducks/travelers/travelers_actions'
-import {fullInfoSelector} from "../../redux/ducks/travelers/travelers_selectors";
+import { fullInfoSelector } from '../../redux/ducks/travelers/travelers_selectors'
 
 let totalAmount = {
   Adults: 2,
