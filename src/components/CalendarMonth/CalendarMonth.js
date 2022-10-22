@@ -9,9 +9,11 @@ import {
 
 import './CalendarMonth.scss'
 import CalendarDay from '../CalendarDay/CalendarDay'
+import { useDispatch } from 'react-redux'
 
 const CalendarMonth = ({ id_, selectedDates, setSelectedDates }) => {
   const viewMonth = id_ === 'current' ? calendarMonth : calendarNextMonth
+  const dispatch = useDispatch()
 
   const handleSelectedDay = (day) => {
     const clickedDay = new Date(2022, day.month, day.daysInMonth)

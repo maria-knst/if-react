@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import Calendar from '../Calendar/Calendar'
 import PeopleFilter from '../PeopleFilter/PeopleFilter'
 
 import './FormDivButton.scss'
 
-const FormDivButton = ({ type }) => {
+const FormDivButton = ({ type, setDate, setPeopleAmount }) => {
   const [visible, setVisible] = useState(false)
   const [peopleFilterArguments, setPeopleFilterArguments] = useState({
     Adults: 2,
     Children: 0,
     Rooms: 1,
   })
+
 
   const [selectedDates, setSelectedDates] = useState({
     start: null,
@@ -23,6 +24,7 @@ const FormDivButton = ({ type }) => {
   }
 
   const makeData = () => {
+    setDate(selectedDates);
     if (!selectedDates.start && !selectedDates.end) {
       return 'Mon 11 Sep — Sun 19 Sep'
     } else if (selectedDates.start && !selectedDates.end) {
@@ -38,15 +40,21 @@ const FormDivButton = ({ type }) => {
     }
   }
 
+  const makePeoples = () => {
+    setPeopleAmount(peopleFilterArguments)
+    const res = Object.entries(peopleFilterArguments)
+        .map((el) => {
+          return `${el[0]} ${el[1]}`
+        })
+        .join(' — ')
+    return res;
+  }
+
   return (
     <div className={`${type} top__div-but`}>
       <button className="inner-but" onClick={handleClick}>
         {type === 'people'
-          ? Object.entries(peopleFilterArguments)
-              .map((el) => {
-                return `${el[0]} ${el[1]}`
-              })
-              .join(' — ')
+          ? makePeoples()
           : makeData()}
       </button>
       {visible &&

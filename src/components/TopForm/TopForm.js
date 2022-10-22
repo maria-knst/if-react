@@ -2,28 +2,39 @@ import React, { useState } from 'react'
 
 import './TopForm.css'
 import FormDivButton from '../FormDivButton/FormDivButton'
-import { BASE_PATH } from '../../utils/utils'
-import { useDispatch } from 'react-redux'
-import { searchHotels } from '../../redux/ducks/search/search_actions'
+import { useDispatch, useSelector } from 'react-redux'
+import { searchDataRequested } from '../../redux/ducks/search/search_actions'
+import {
+  childrenSelector,
+} from '../../redux/ducks/travelers/travelers_selectors'
 
 const TopForm = () => {
   const [destination, setDestination] = useState('New York')
+  const [date, setDate] = useState({
+    start: new Date(),
+    end: new Date(),
+  })
+  const [peopleAmount, setPeopleAmount] = useState({
+      Adults: 2,
+      Children: 0,
+      Rooms: 1,
+  })
   const dispatch = useDispatch()
 
-  const createRequest = async (search) => {
-    const request = await fetch(BASE_PATH + `?search=${search}`)
-    const result = await request.json()
-
-    if (result.length) {
-      dispatch(searchHotels(result))
-    } else {
-      alert('Nothing is find')
-    }
-  }
+  const childrenS = useSelector(childrenSelector)
 
   const handleSearch = (e) => {
     e.preventDefault()
-    createRequest(destination)
+      console.log(date)
+    dispatch(
+      searchDataRequested({
+        searchingString: destination,
+        adults: peopleAmount.Adults,
+        childrenAge: [childrenS],
+        rooms: peopleAmount.Rooms,
+        ...date,
+      }),
+    )
     setDestination('')
   }
 
@@ -44,8 +55,8 @@ const TopForm = () => {
           onChange={(event) => setDestination(event.target.value)}
           required
         />
-        <FormDivButton type="date" />
-        <FormDivButton type="people" />
+        <FormDivButton type="date" setDate={setDate} />
+        <FormDivButton type="people" setPeopleAmount={setPeopleAmount} />
 
         <button
           onClick={handleSearch}
